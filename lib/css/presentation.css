@@ -1,0 +1,289 @@
+/**
+ * The MECO presentation theme, based on the KUL theme.
+ *
+ * This stylesheet consists of the following parts:
+ *  - Color definitions
+ *  - Font definitions
+ *  - Adaptations to reveal.js/kul-styles
+ *  - Additional styles
+ *
+ * Guidelines to keep this nice:
+ *  - no tabs, but two whitespace characters
+ *  - add a few words before every style tag to explain its use
+ *  - put styles in the correct part (as indicated above)
+ *  - closing tags get a new line, please
+ *  - for the rest see the existent code
+ *
+ * Copyright (C) 2016-2017  Armin Steinhauser
+ */
+
+/* COLOR DEFINITIONS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+
+/* These are the official KUL colors, see KUL style guide. */
+:root {
+  --my_blue: rgb( 25, 94, 175);
+  --my_red: rgb( 217, 26, 40);
+  --my_green: rgb(117, 162, 54);
+  --my_lightgreen: rgb(182, 233, 116);
+  --my_lightblue: rgb( 94, 155, 232);
+  --my_lightgray: rgb(180, 180, 180);
+  --my_lightmgnt: rgb(238, 80, 191);
+  --my_gray: rgb(54, 54, 54);
+}
+
+/* FONT DEFINITIONS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+
+/* Define a few names for easy access */
+:root {
+  /*--meco-sans: 'Open-Sans';  standard sans serif font */
+  --meco-sans: 'Montserrat'; /* standard sans serif font */
+  --meco-serif: 'Janson'; /* standard serif font */
+  --meco-headings: 'Montserrat'; /* standard headings font */
+  --meco-mono: 'Anonymous-Pro'; /* standard monospace font */
+}
+
+/* Define the font that should be used in SVGs (aka 'svgfont') */
+@font-face {
+  font-family: 'svgfont';
+  src: url('../fonts/open-sans/OpenSans-Regular.ttf') format('truetype');
+}
+
+/* ADAPTATIONS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+
+/* Set background to white */
+body {
+  background: #FFFFFF;
+  background-color: #FFFFFF;
+}
+
+/* Adapting the overall reveal style */
+.reveal {
+  font-family: var(--meco-sans);
+  font-size: 30px;
+}
+
+/* Make text on slides float left by default */
+.reveal .slides {
+  text-align: left;
+}
+
+/* General styles for all headings */
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+  margin: 0 0 15px 0;
+  color: #000000;
+  font-family: var(--meco-headings);
+  /*font-weight: bold;*/
+  font-size: 1em;
+}
+
+/* Different style for main headings */
+.reveal h1 {
+  /*color: var(--col-kul5);*/
+  color: var(--my_blue);
+/*  font-size: 1.6em;*/
+  font-size:2.5em;
+  text-align: center;
+  margin: 0 0 30px 0;
+  padding: 10px 20px;
+}
+
+/* Another heading, smaller and black */
+.reveal h2 {
+  font-size: 1.1em;
+  margin: 5px 0 15px 0;
+}
+
+/* Increase intentation of lists */
+.reveal ul, .reveal ol, .reveal dl {
+  margin-left: 2em;
+}
+
+/* Adapt style of slide numbers */
+.reveal .slide-number {
+  color: #ffffff;
+  font-family: var(--meco-sans);
+  font-size: 16px;
+  line-height: 1;
+  position: absolute;
+  display: block;
+  right: 50%;
+  bottom: 1%;
+  padding: 0px;
+  background-color: none;
+}
+
+/* Reset image style */
+.reveal img {
+  max-width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* ADDITIONAL STYLES <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+
+/* Class to make a slide clean, i.e. remove the logo, bar, etc. */
+.plain-slide #bar, .plain-slide #logo-container, .plain-slide .slide-number,
+.plain-slide .controls, .plain-slide .progress {
+  display: none;
+}
+
+/* Element containing the KUL logo */
+#logo-container {
+  position: absolute;
+  height: 5%;
+  top: 92%;
+  right: 5%;
+  bottom: 3%;
+  left: 0%;
+  background-image: url('../../kul-theme/kuleuven.png');  /* TODO: use SVG */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+/* Semi-transparent background box for heading */
+.reveal h1.box_header {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* A list that's less dense than the default one */
+.reveal ul.stretched li {
+  margin-bottom: 1em;
+}
+
+/* Class for icons ('background_apps.svg') to not collide with bottom bar */
+html.icon-bg div.slide-background.present {
+  left: 85%;
+  width: 15%;
+  height: 85%;
+  background-size: contain;
+  background-position: center right;
+}
+
+/* Class for icons ('background_apps.svg') to not collide with bottom bar */
+html.fig-bg div.slide-background.present {
+  left: 20%;
+  width: 70%;
+  height: 95%;
+  background-size: contain;
+  background-position: bottom right;
+}
+
+/* Class for equation box with rounded corners */
+.reveal .equation-box {
+  background-color: rgba(17, 110, 138, 0.2);  /* TODO: use def. (!opacity!) */
+  border-style: solid;
+  border-width: 3px;
+  /*border-color: var(--col-kul5);*/
+  border-color: var(--my_blue);
+  border-radius: 25px;
+  width: 80%;
+  margin: auto;
+  padding: 30px 0px;
+}
+
+/* Extending reveal:
+ * 'replace' only takes space when current-fragment
+ */
+.reveal section .fragment.replace {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all .2s ease;
+          transition: all .2s ease;
+  display: none;
+}
+.reveal section .fragment.replace.current-fragment {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+}
+
+.reveal section .fragment.replace.visible:not(.current-fragment) {
+  opacity: 1;
+  /*visibility: hidden;*/
+  visibility: inherit;
+  display: none;
+}
+.reveal section .fragment.replace:last-of-type {
+  opacity: 0;
+  display: none;
+  visibility: hidden;
+}
+.reveal section .fragment.replace:last-of-type.visible {
+  opacity: 1;
+  display: block;
+  visibility: visible;
+}
+.reveal section .fragment.replace:first-of-type {
+  opacity: 1;
+  display: block;
+  visibility: visible;
+}
+.reveal section .fragment.replace:first-of-type.visible {
+  opacity: 0;
+  display: none;
+  visibility: hidden;
+}
+
+/* TODO include people/portraits in HTML, not on the SVG */
+.reveal involved {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 15%;
+  text-align: right;
+}
+.reveal involved img {
+  width: auto;
+  margin-bottom: 2px;
+  border-radius: 50%;
+  border: 2px solid #116F8A;
+  padding: 4px;
+}
+
+.reveal pre {
+  display: block;
+  position: relative;
+  width: 50%;
+  margin: 0px auto;
+  /*margin: 0px;*/
+  text-align: left;
+  font-size: 0.8em;
+  font-family: monospace;
+  line-height: 1.2em;
+  word-wrap: break-word;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3); }
+
+.reveal code {
+  font-family: monospace;
+  text-transform: none; }
+
+.reveal pre code {
+  display: block;
+  padding: 0px;
+  overflow: auto;
+  max-height: 400px;
+  word-wrap: normal;
+}
+
+.reveal sup {
+  vertical-align: super;
+  font-size: 80%;
+}
+.reveal sub {
+  vertical-align: sub;
+  font-size: 80%;
+}
+
+
+.keyword {
+  color: var(--my_lightblue);
+}
+
+.code_comment {
+  color: var(--my_lightmgnt);
+}
+
+.code_static {
+  color: var(--my_lightgreen);
+}
