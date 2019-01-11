@@ -21,13 +21,14 @@
 
 /* These are the official KUL colors, see KUL style guide. */
 :root {
+  --bck_opacity: 0.15;
   --my_blue: rgb( 25, 94, 175);
   --my_red: rgb( 217, 26, 40);
   --my_green: rgb(117, 162, 54);
   --my_lightgreen: rgb(182, 233, 116);
-  --my_lightblue: rgb( 94, 155, 232);
+  --my_lightblue: rgb(117, 170, 235);
   --my_lightgray: rgb(180, 180, 180);
-  --my_lightmgnt: rgb(238, 80, 191);
+  --my_lightmgnt: rgb(236, 139, 207);
   --my_gray: rgb(54, 54, 54);
 }
 

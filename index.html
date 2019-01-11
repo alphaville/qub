@@ -65,7 +65,7 @@
           and its Software Implementation
         </div>
         <div style="margin-top: 2em;text-align:center;">
-          Pantelis Sopasakis
+          <a href="https://alphaville.github.io" target="blank" style="color:black">Pantelis Sopasakis</a>
         </div>
       </section>
 
@@ -87,7 +87,7 @@
       <section data-background-image="img/shower.jpg" data-background-size="contain">
       </section>
 
-      <section data-background-image="img/shower.jpg" data-background-size="contain" data-background-opacity="0.05">
+      <section data-background-image="img/shower.jpg" data-background-size="contain" data-background-opacity="var(--bck_opacity)">
         <div style="margin-top: 10%; font-size:1.em; text-align: left; color: black">
           Define (error) = (set point) - (measurement), that is
         </div>
@@ -109,7 +109,7 @@
       <section data-background-image="img/car.jpg" data-background-size="contain">
       </section>
 
-      <section data-background-image="img/car.jpg" data-background-size="contain" data-background-opacity="0.1">
+      <section data-background-image="img/car.jpg" data-background-size="contain" data-background-opacity="var(--bck_opacity)">
         <div style="margin-top: 10%; font-size:1.em; text-align: left; color: black">
           Define (error) = (set point) - (measurement), that is
         </div>
@@ -151,7 +151,7 @@
       </section>
 
       <section data-background-video="mov/P/p-concept.mp4" data-background-video-loop="loop" data-background-size="contain"
-        data-background-video-muted="true" data-background-opacity=0.2>
+        data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
 
         <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
           Steering is <span style="color:var(--my_red)">proportional</span> to <span style="color:var(--my_red)">error</span>
@@ -169,7 +169,7 @@
       </section>
 
       <section data-background-video="mov/P/P_K0.01.mp4" data-background-video-loop="loop" data-background-size="contain"
-        data-background-video-muted="true" data-background-opacity=0.2>
+        data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
         <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
           Too <span style="color:var(--my_red)">slow</span>! Let's increase $K_p$.
         </div>
@@ -180,7 +180,7 @@
       </section>
 
       <section data-background-video="mov/P/P_K0.06.mp4" data-background-video-loop="loop" data-background-size="contain"
-        data-background-video-muted="true" data-background-opacity=0.2>
+        data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
         <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
           Too <span style="color:var(--my_red)">oscillatory</span>!
         </div>
@@ -194,7 +194,7 @@
       </section>
 
       <section data-background-video="mov/P/P_K0.2.mp4" data-background-video-loop="loop" data-background-size="contain"
-        data-background-video-muted="true" data-background-opacity=0.2>
+        data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
         <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
           Unacceptable!
         </div>
@@ -203,7 +203,7 @@
       <section data-background-image="img/p_gains.jpg" data-background-size="contain">
       </section>
 
-      <section data-background-image="img/p_gains.jpg" data-background-size="contain" data-background-opacity=0.2>
+      <section data-background-image="img/p_gains.jpg" data-background-size="contain" data-background-opacity="var(--bck_opacity)">
         <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
           Increase $K_p$ for a <span style="color:var(--my_red)">faster</span> response, which may
           lead to <span style="color:var(--my_red)">oscillations</span>
@@ -229,12 +229,13 @@
       </section>
 
       <section data-background-video="mov/PD/pd-concept.mp4" data-background-video-loop="loop" data-background-size="contain"
-        data-background-video-muted="true" data-background-opacity="0.2">
+        data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
         <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
           The control action is
         </div>
-        <div style="margin-top: 1em; font-size:2em; color:black; text-align:center;">
-          $$u(t) = K_p e(t) +K_d \dot{e}(t)$$
+        <div style="margin-top: 1em; font-size:1.5em; color:black; text-align:center;">
+          $u(t)$ ${}={}$ <span style="color:var(--my_lightblue)">$K_p e(t)$</span> ${}+{}$ <span style="color:var(--my_red)">$K_d
+            \dot{e}(t)$</span>
         </div>
       </section>
 
@@ -243,10 +244,13 @@
       </section>
 
       <section data-background-video="mov/PD/PD_K0.2_Kd0.03.mp4" data-background-video-loop="loop" data-background-size="contain"
-        data-background-video-muted="true" data-background-opacity=0.2>
+        data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
         <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
           That's better!
         </div>
+        <div style="margin-top: 1em; font-size:1em; color:black; text-align:center;">
+          Let's <span style="color:var(--my_red)">increase $K_d$</span> even more...
+        </div>
       </section>
 
 
@@ -255,9 +259,12 @@
       </section>
 
       <section data-background-video="mov/PD/PD_K0.2_Kd0.06.mp4" data-background-video-loop="loop" data-background-size="contain"
-        data-background-video-muted="true" data-background-opacity=0.2>
+        data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
         <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
-          This is less oscillatory...
+          This is less oscillatory
+        </div>
+        <div style="margin-top: 1em; font-size:1em; color:black; text-align:center;">
+          Let's <span style="color:var(--my_red)">eliminate</span> the oscillations!
         </div>
       </section>
 
@@ -266,19 +273,16 @@
       </section>
 
       <section data-background-video="mov/PD/PD_K0.2_Kd0.12.mp4" data-background-video-loop="loop" data-background-size="contain"
-        data-background-video-muted="true" data-background-opacity=0.2>
+        data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
         <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
           By increasing $K_d$ we have <span style="color:var(--my_red)">eliminated</span> the oscillations!
-        </div>
-        <div class="fragment" style="margin-top: 5%; font-size:1em; color:black; text-align:center;">
-          lala
         </div>
       </section>
 
       <section data-background-image="img/pd_gains.jpg" data-background-size="contain">
       </section>
 
-      <section data-background-image="img/pd_gains.jpg" data-background-size="contain" data-background-opacity=0.15>
+      <section data-background-image="img/pd_gains.jpg" data-background-size="contain" data-background-opacity="var(--bck_opacity)">
         <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
           Increase $K_d$ to suppress the <span style="color:var(--my_red)">oscillations</span>
         </div>
@@ -288,7 +292,7 @@
       </section>
 
       <section data-background-image="img/pd_gains_sweet_spot.jpg" data-background-size="contain"
-        data-background-opacity=0.15>
+        data-background-opacity="var(--bck_opacity)">
         <div style="margin-top: 15%; font-size:2em; color:black; text-align:center;">
           $K_d$: too low $\Rightarrow$ Underdamped
         </div>
@@ -309,7 +313,7 @@
       </section>
 
       <section data-background-image="img/pd_gains_Kp_effect.jpg" data-background-size="contain"
-        data-background-opacity=0.15>
+        data-background-opacity="var(--bck_opacity)">
         <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
           Increase $K_p$ for a <span style="color:var(--my_red)">faster</span> response, which may
           lead to <span style="color:var(--my_red)">oscillations</span>
@@ -350,8 +354,11 @@
       </section>
 
       <section data-background-video="mov/PID/PID_offset_noint.mp4" data-background-video-loop="loop"
-        data-background-size="contain" data-background-video-muted="true" data-background-opacity="0.2">
-        <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
+        data-background-size="contain" data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
+        <div style="margin-top: 10%; font-size:2em; color:black; text-align:center;">
+          Offset = 0.8m
+        </div>
+        <div class="fragment" style="margin-top: 1em; font-size:1em; color:black; text-align:center;">
           Define <span style="color:var(--my_red)">$I(t) = \int_0^t e(\tau)\mathrm{d}\tau$</span>
         </div>
       </section>
@@ -361,7 +368,7 @@
       </section>
 
       <section data-background-video="mov/PID/PID_offset_int.mp4" data-background-video-loop="loop"
-        data-background-size="contain" data-background-video-muted="true" data-background-opacity=0.2>
+        data-background-size="contain" data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
         <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
           The integral <span style="color:var(--my_red)">diverges</span>
         </div>
@@ -371,12 +378,13 @@
       </section>
 
       <section data-background-video="mov/PID/PID_offset_int.mp4" data-background-video-loop="loop"
-        data-background-size="contain" data-background-video-muted="true" data-background-opacity=0.2>
+        data-background-size="contain" data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
         <div style="margin-top: 15%; font-size:1.5em; color:black; text-align:center;">
           Let's plug the <span style="color:var(--my_red)">integral</span> into the controller...
         </div>
         <div style="margin-top: 1em; font-size:1.5em; color:black; text-align:center;">
-          $$u(t) = K_p e(t) + K_d \dot{e}(t) + K_i I(t)$$
+          $u(t)$ ${}={}$ <span style="color:var(--my_lightblue)">$K_p e(t)$</span> ${}+{}$ <span style="color:var(--my_red)">$K_d
+            \dot{e}(t)$</span> ${}+{}$ <span style="color:var(--my_green)">$K_i I(t)$</span>
         </div>
       </section>
 
@@ -385,7 +393,7 @@
       </section>
 
       <section data-background-video="mov/PID/PID.mp4" data-background-video-loop="loop" data-background-size="contain"
-        data-background-video-muted="true" data-background-opacity="0.2">
+        data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
         <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
           No Offset!
         </div>
@@ -402,63 +410,71 @@
         </div>
       </section>
 
-      <section>
-        <h1>Discretisation</h1>
-        <div style="margin-top: 10%; font-size:1.0em; text-align: left; color: black">
-          wtf
-        </div>
+      <section data-background-image="img/discrete1.jpg" data-background-size="contain">
       </section>
 
-      <section>
-        <h1>Discretisation</h1>
-        <div style="margin-top: 10%; font-size:1.0em; text-align: left; color: black">
-          Derivative approximation
-        </div>
-        <div style="margin-top: 1em; font-size:1.0em; text-align: left; color: black">
+      <section data-background-image="img/discrete2.jpg" data-background-size="contain">
+        <div style="font-size:1.0em; text-align: left; color: blue; margin-top: 50%">
           $$\frac{\mathrm{d}e(t_k)}{\mathrm{d}t} \approx \frac{e(t_k) - e(t_{k-1})}{T_s}$$
         </div>
-        <div style="margin-top: 1em; font-size:1.0em; text-align: left; color: black">
-          Integral approximation
+        <div style="font-size:0.7em; text-align: center; color: black; margin-top: 1em">
+          for $k=1,2,\ldots$
         </div>
-        <div style="margin-top: 1em; font-size:1.0em; text-align: left; color: black">
-          $$\int_0^{t_k} e(\tau)\mathrm{d}\tau \approx \sum_{i=0}^{k} T_s e(t_i)$$
+      </section>
+
+      <section data-background-image="img/discrete3.jpg" data-background-size="contain">
+        <div style="font-size:1.0em; text-align: left; color: magenta; margin-top: 50%">
+          $$\int_{t_{k-1}}^{t_k}e(\tau)\mathrm{d}\tau \approx T_s e(t_k)$$
+        </div>
+      </section>
+
+      <section data-background-image="img/discrete5.jpg" data-background-size="contain">
+        <div style="font-size:1.0em; text-align: left; color: black; margin-top: 50%">
+          $$I(t_{k}) {}\approx{} \sum_{i=1}^{k}T_s e(t_k)$$
         </div>
       </section>
 
       <section>
-        <h1>Discrete PID</h1>
+        <h1>Discrete-time PID</h1>
         <div style="margin-top: 10%; font-size:1.0em; text-align: left; color: black">
-          Discrete PID controller
+          Discrete-time PID controller
         </div>
-        <div style="margin-top: 1em; font-size:1.0em; text-align: left; color: black">
+        <div style="font-size:1.0em; text-align: left; color: black">
           $\begin{align}u(t_k) ={}& K_p e(t_k) + K_d \frac{e(t_k) - e(t_{k-1})}{T_s} + K_i \sum_{i=0}^{k}
           T_s
           e(t_i)\\ ={}&
           K_p e(t_k) + {\color{blue}{K'_d}} (e(t_k) - e(t_{k-1})) + {\color{red}{K'_i}} \sum_{i=0}^{k}e(t_i)
           \end{align}$
         </div>
-        <div style="margin-top: 1em; font-size:1.0em; text-align: left; color: black">
-          where $K'_d = K_d/T_s$ and $K'_i = K_i T_s$.
+        <div style="margin-top: 0.5em; font-size:1.0em; text-align: left; color: black">
+          where <span style="color:var(--my_red)">$K'_d = \frac{K_d}{T_s}$</span> and
+          <span style="color:var(--my_blue)">$K'_i = K_i T_s$</span>.
         </div>
       </section>
 
+
       <section>
         <h1>PID implementation</h1>
-        <pre style="width:100%; padding: 10px"><code data-trim data-noescape>
-          <span class="code_comment">// PID implementation (pseudocode)</span>
-          previous_error = measured_value;
-          integral = 0.0;
-
-          <span class="keyword">loop</span> {
-            ctrl_error = setpoint - measured_value;
-            sum_error = integral + ctrl_error;
-            delta_error = ctrl_error - previous_error;
-            control = <span class="code_static">P_GAIN</span> * ctrl_error 
-                    + <span class="code_static">I_GAIN</span> * sum_error 
-                    + <span class="code_static">D_GAIN</span> * delta_error;
-            previous_error = ctrl_error;
-          }
-            </code></pre>
+        <div style="margin-top: 2.2em">
+          <pre style="width:80%; padding: 10px; height: 100%; font-size:0.68em"><code data-trim data-noescape>
+            <span class="code_comment">/* PID implementation (pseudocode) */</span>          
+            previous_error = 0.0, sum_error = 0.0;
+  
+            <span class="code_comment">/* Initialise variables */</span>                    
+            previous_error = setpoint - measured_value;
+            
+            <span class="code_comment">/* Call the following function at every sampling time */</span>
+            function <span class="keyword">compute_control_action</span>(measured_value, setpoint) {
+              ctrl_error = setpoint - measured_value;
+              delta_error = ctrl_error - previous_error;
+              control = <span class="code_static">P_GAIN_DISCRETE</span> * ctrl_error 
+                      + <span class="code_static">I_GAIN_DISCRETE</span> * sum_error 
+                      + <span class="code_static">D_GAIN_DISCRETE</span> * delta_error;
+              sum_error += ctrl_error;
+              previous_error = ctrl_error;
+            }
+              </code></pre>
+        </div>
       </section>
 
 

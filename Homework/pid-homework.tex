@@ -1,0 +1,179 @@
+\documentclass[a4paper,10pt,reqno]{amsart}
+
+% \usepackage[utf8x]{inputenc}
+% \usepackage[foot]{amsaddr}
+% \usepackage{amsmath,amsfonts,amssymb,amsthm}
+% \usepackage[margin=0.95in]{geometry}
+% \usepackage{color}
+% \usepackage[dvipsnames]{xcolor}
+% \usepackage{mathtools,mathrsfs}
+% 
+% \usepackage{hyperref}
+
+\usepackage[utf8]{inputenc}
+\usepackage[foot]{amsaddr}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathrsfs}
+\usepackage[margin=0.95in]{geometry}
+\usepackage{color}
+\usepackage{units}
+\usepackage[dvipsnames]{xcolor}
+
+ \input{toc-config.tex}
+
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{mathrsfs} 			% for mathscr
+\usepackage{hyperref}
+
+\definecolor{CommentGreen}{rgb}{0.0,0.4,0.0}
+\definecolor{Background}{rgb}{0.9,1.0,0.85}
+\definecolor{lrow}{rgb}{0.914,0.918,0.922}
+\definecolor{drow}{rgb}{0.725,0.745,0.769}
+
+\usepackage{listings}
+\usepackage{textcomp}
+\lstloadlanguages{Matlab}%
+\lstset{
+    language=Matlab,                        % Use MATLAB
+    upquote=true,
+    frame=single,                           % Single frame around code
+    basicstyle=\small\ttfamily,             % Use small true type font
+    backgroundcolor=\color{Background},
+    keywordstyle=[1]\color{blue}\bfseries,        % MATLAB functions bold and blue
+    keywordstyle=[2]\color{purple},         % MATLAB function arguments purple
+    keywordstyle=[3]\color{black}\bfseries,  % User functions underlined and blue
+    identifierstyle=,                       % Nothing special about identifiers
+                                            % Comments small dark green courier
+    commentstyle=\usefont{T1}{pcr}{m}{sl}\color{CommentGreen}\small,
+    stringstyle=\color{purple},             % Strings are purple
+    showstringspaces=false,                 % Don't put marks in string spaces
+    tabsize=5,                              % 5 spaces per tab
+    %
+    %%% Put standard MATLAB functions not included in the default
+    %%% language here
+    morekeywords={properties,methods,classdef},
+    %
+    %%% Put MATLAB function parameters here
+    morekeywords=[2]{handle},
+    %
+    %%% Put user defined functions here
+    morecomment=[l][\color{blue}]{...},     % Line continuation (...) like blue comment
+    numbers=none,                           % Line numbers on left
+    firstnumber=1,                          % Line numbers start with line 1
+    numberstyle=\tiny\color{blue},          % Line numbers are blue
+    stepnumber=1,                            % Line numbers go in steps of 5,
+    xleftmargin=10pt,
+    xrightmargin=10pt
+}
+
+\lstdefinelanguage{json}{
+   upquote=true,
+    frame=single,                           % Single frame around code
+    basicstyle=\small\ttfamily,             % Use small true type font
+    backgroundcolor=\color{Background},
+    keywordstyle=[1]\color{blue}\bfseries,        % MATLAB functions bold and blue
+    keywordstyle=[2]\color{purple},         % MATLAB function arguments purple
+    keywordstyle=[3]\color{black}\bfseries,  % User functions underlined and blue
+    identifierstyle=,                       % Nothing special about identifiers
+                                            % Comments small dark green courier
+    commentstyle=\usefont{T1}{pcr}{m}{sl}\color{CommentGreen}\small,
+    stringstyle=\color{purple},             % Strings are purple
+    showstringspaces=false,                 % Don't put marks in string spaces
+    tabsize=5,                              % 5 spaces per tab
+    numbers=none,                           % Line numbers on left
+    firstnumber=1,                          % Line numbers start with line 1
+    numberstyle=\tiny\color{blue},          % Line numbers are blue
+    stepnumber=1,                            % Line numbers go in steps of 5,
+    xleftmargin=10pt,
+    xrightmargin=10pt
+}
+
+\numberwithin{equation}{section}
+\synctex=1
+
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={Quaternion-based modelling},    % title
+    pdfauthor={P. Sopasakis},     % author
+    pdfsubject={Quaternion-based modelling},   % subject of the document
+    pdfcreator={P. Sopasakis},   % creator of the document
+    pdfproducer={P. Sopasakis}, % producer of the document
+    pdfnewwindow=true,      % links in new PDF window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=red,          % color of internal links (change box color with linkbordercolor)
+    citecolor=blue,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=cyan           % color of external links
+}
+
+
+% This is how it should be for the final submission:
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+
+% CUSTOM COMMANDS
+\renewcommand{\Re}{\mathbb{R}}
+\newcommand{\uu}{\mathbf{u}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\NN}{\mathcal{N}}
+\newcommand{\FF}{\mathfrak{F}}
+\newcommand{\expect}{\mathbb{E}}
+\newcommand{\prob}{\mathrm{P}}
+\newcommand{\sets}{\mathrm{sets}}
+\newcommand{\EE}{\mathscr{E}}
+\newcommand{\LL}{\mathcal{L}}
+\newcommand{\dfn}{\mathrel{:}=}
+\newcommand{\bet}{\mathrm{bet}}
+
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\q}{\mathfrak{q}}
+\newcommand{\p}{\mathfrak{p}}
+\newcommand{\smallmat}[1]{\left[ \begin{smallmatrix}#1 \end{smallmatrix} \right]}
+
+% RENEWED COMMANDS
+\renewcommand{\Re}{\mathbb{R}}
+
+%opening
+\title[PID Controller]{Introduction to the PID controller}
+
+
+\author[P. Sopasakis]{Pantelis Sopasakis}
+
+% \address[P. Sopasakis]{KU Leuven, Department of Electrical Engineering (ESAT), STADIUS Center for Dynamical Systems, Signal Processing and Data Analytics \& Optimization in Engineering (OPTEC), Kasteelpark Arenberg 10, 3001 Leuven, Belgium. Email addresses: \href{mailto:pantelis.sopasakis@kuleuven.be}{pantelis.sopasakis@kuleuven.be} and 
+% \href{mailto:panos.patrinos@esat.kuleuven.be}{panos.patrinos@esat.kuleuven.be}.}
+\thanks{Homework for the . For questions you may reach me by email at \url{p.sopasakis@gmail.com} 
+       or in person in Office No. ... during office hours. Last updated:~\today.}
+\begin{document}
+
+
+\maketitle
+
+\begin{enumerate}
+ \item 
+
+ \item In the lecture, we presented a \textit{discrete-time approximation} of the 
+       PID controller using the following integral approximation
+       \[
+        \int_{t_{k-1}}^{t_k} e(\tau)\mathrm{d}\tau = T_s e(t_k)
+       \]
+      \begin{enumerate}
+	\item Give a discrete-time approximation of the PID controller using the 
+	      \textit{trapezoidal rule}, that is, 
+	      \(\int_{t_{k-1}}^{t_k} e(\tau)\mathrm{d}\tau = \nicefrac{T_s}{2} (e(t_k) - e(t_{k-1}))\)
+	\item Write some simple pseudocode
+	\item Implement your PID controller in MATLAB
+      \end{enumerate}
+\end{enumerate}
+
+\end{document}
