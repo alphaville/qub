@@ -65,7 +65,8 @@
           and its Software Implementation
         </div>
         <div style="margin-top: 2em;text-align:center;">
-          <a href="https://alphaville.github.io" target="blank" style="color:black">Pantelis Sopasakis</a>
+          <a href="https://alphaville.github.io" target="blank" style="color:black; text-decoration: none">Pantelis
+            Sopasakis</a>
         </div>
       </section>
 
@@ -399,6 +400,9 @@
         </div>
       </section>
 
+      <section data-background-image="img/Ki-effect.jpg" data-background-size="contain">
+      </section>
+
 
       <!-- 
         
@@ -456,7 +460,7 @@
       <section>
         <h1>PID implementation</h1>
         <div style="margin-top: 2.2em">
-          <pre style="width:80%; padding: 10px; height: 100%; font-size:0.68em"><code data-trim data-noescape>
+          <pre style="width:80%; padding: 10px; height: 100%; font-size:0.6em"><code data-trim data-noescape>
             <span class="code_comment">/* PID implementation (pseudocode) */</span>          
             previous_error = 0.0, sum_error = 0.0;
   
@@ -464,7 +468,7 @@
             previous_error = setpoint - measured_value;
             
             <span class="code_comment">/* Call the following function at every sampling time */</span>
-            function <span class="keyword">compute_control_action</span>(measured_value, setpoint) {
+            <span class="keyword">function</span> compute_control_action(measured_value, setpoint) {
               ctrl_error = setpoint - measured_value;
               delta_error = ctrl_error - previous_error;
               control = <span class="code_static">P_GAIN_DISCRETE</span> * ctrl_error 
@@ -472,6 +476,7 @@
                       + <span class="code_static">D_GAIN_DISCRETE</span> * delta_error;
               sum_error += ctrl_error;
               previous_error = ctrl_error;
+              <span class="keyword">return</span> control;
             }
               </code></pre>
         </div>

@@ -1,0 +1,168 @@
+\documentclass[a4paper,10pt,reqno]{amsart}
+
+\usepackage[utf8]{inputenc}
+\usepackage[foot]{amsaddr}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathrsfs}
+\usepackage[margin=0.95in]{geometry}
+\usepackage{color}
+\usepackage{units}
+\usepackage[dvipsnames]{xcolor}
+
+
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{mathrsfs} 			% for mathscr
+\usepackage{hyperref}
+
+\definecolor{CommentGreen}{rgb}{0.0,0.4,0.0}
+\definecolor{Background}{rgb}{0.9,1.0,0.85}
+\definecolor{lrow}{rgb}{0.914,0.918,0.922}
+\definecolor{drow}{rgb}{0.725,0.745,0.769}
+
+
+\numberwithin{equation}{section}
+\synctex=1
+
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={PID Quiz},    % title
+    pdfauthor={P. Sopasakis},     % author
+    pdfsubject={PID Controller Quiz},   % subject of the document
+    pdfcreator={P. Sopasakis},   % creator of the document
+    pdfproducer={P. Sopasakis}, % producer of the document
+    pdfnewwindow=true,      % links in new PDF window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=red,          % color of internal links (change box color with linkbordercolor)
+    citecolor=blue,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=cyan           % color of external links
+}
+
+
+% This is how it should be for the final submission:
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+
+% CUSTOM COMMANDS
+\renewcommand{\Re}{\mathbb{R}}
+\newcommand{\uu}{\mathbf{u}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\NN}{\mathcal{N}}
+\newcommand{\FF}{\mathfrak{F}}
+\newcommand{\expect}{\mathbb{E}}
+\newcommand{\prob}{\mathrm{P}}
+\newcommand{\sets}{\mathrm{sets}}
+\newcommand{\EE}{\mathscr{E}}
+\newcommand{\LL}{\mathcal{L}}
+\newcommand{\dfn}{\mathrel{:}=}
+\newcommand{\bet}{\mathrm{bet}}
+
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\q}{\mathfrak{q}}
+\newcommand{\p}{\mathfrak{p}}
+\newcommand{\smallmat}[1]{\left[ \begin{smallmatrix}#1 \end{smallmatrix} \right]}
+
+% RENEWED COMMANDS
+\renewcommand{\Re}{\mathbb{R}}
+
+%opening
+\title[PID Controller]{Quiz: The PID controller}
+
+
+\author[P. Sopasakis]{Pantelis Sopasakis}
+
+
+\thanks{Quiz for the PID controller. For questions you may reach me by email at \url{p.sopasakis@gmail.com} 
+       or in person in Office No. ... during office hours. Last updated:~\today.}
+\begin{document}
+
+
+\maketitle
+Quiz questions
+\begin{enumerate} 
+ \item The \textbf{limit} of the \textbf{error} at infinity is called...
+    \begin{enumerate}
+     \item Offset
+     \item Set-point
+     \item Measurement
+     \item Feedback
+    \end{enumerate}
+    
+ \item Which component of a PID controller is used to \textbf{eliminate offset}?
+  \begin{enumerate}
+   \item Proportional
+   \item Integral
+   \item Derivative
+   \item Feedback
+  \end{enumerate}
+
+ \item Which component of a PID controller is used to \textbf{suppress oscillations}?
+  \begin{enumerate}
+   \item Proportional (P)
+   \item Integral (I)
+   \item Derivative (D)
+   \item Set-point
+  \end{enumerate}
+
+  \item A system is controlled with a P controller and it \textbf{oscillates} too much. 
+        We should...
+  \begin{enumerate}
+   \item Increase the proportional gain
+   \item Decrease the proportional gain
+  \end{enumerate}
+  
+  
+  \item A quadcopter's altitude is controlled with a PID controller and there
+        is \textbf{offset}. We should...        
+  \begin{enumerate}
+   \item Increase the proportional gain
+   \item Decrease the proportional gain
+   \item Increase the integral gain
+   \item Decrease the integral gain
+  \end{enumerate}
+        
+  \item An aircraft's roll is controlled with a PID controller, but it \textbf{wobbles}
+        too much. We should...
+  \begin{enumerate}
+   \item Increase the proportional gain
+   \item Increase the integral gain
+   \item Increase the derivative gain
+   \item Decrease the derivative gain
+  \end{enumerate}
+  
+  \item What is the main reason for using the integral in a PID controller?
+  \begin{enumerate}
+   \item So that the error converges
+   \item The controlled variable ultimately returns to its set point after a disturbance 
+   \item The derivative of the controlled variable goes to zero
+   \item ?
+  \end{enumerate}
+
+
+  \item In a software implementation of the PID controller, the \textbf{integral} 
+        is replaced by
+  \begin{enumerate}
+   \item sum of errors
+   \item successive differences of errors
+  \end{enumerate}
+        
+  \item In a software implementation of the PID controller, the \textbf{derivative} 
+        is replaced by
+  \begin{enumerate}
+   \item sum of errors
+   \item successive differences of errors
+  \end{enumerate}      
+\end{enumerate}
+
+\end{document}
