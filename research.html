@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <!--
+  Copyright 2019 Pantelis Sopasakis
+
+  This work is licensed under the Attribution 4.0 International CC licence 
+  (see https://creativecommons.org/licenses/by/4.0/)
+
+  You are free to:
+    Share — copy and redistribute the material in any medium or format
+    Adapt — remix, transform, and build upon the material
+    for any purpose, even commercially.
+
+  The licensor cannot revoke these freedoms as long as you follow the license terms.
+
+  Under the following terms:
+    Attribution — You must give appropriate credit, provide a link to the license, 
+    and indicate if changes were made. You may do so in any reasonable manner, but 
+    not in any way that suggests the licensor endorses you or your use.
+
+    No additional restrictions — You may not apply legal terms or technological measures
+     that legally restrict others from doing anything the license permits.
+
+  Notices:
+    You do not have to comply with the license for elements of the material in the public 
+    domain or where your use is permitted by an applicable exception or limitation.
+
+    No warranties are given. The license may not give you all of the permissions necessary 
+    for your intended use. For example, other rights such as publicity, privacy, or moral 
+    rights may limit how you use the material.
+
+  -->
+
+  <title>OCL Ensembles - P. Sopasakis</title>
+
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" href="lib/js/reveal/css/reveal.css">
+  <link rel="stylesheet" href="lib/js/reveal/lib/css/zenburn.css">
+  <link rel="stylesheet" href="lib/css/include_fonts.css">
+  <link rel="stylesheet" href="lib/css/presentation.css">
+
+  <!-- Printing and PDF exports -->
+  <!-- usage: add "?print-pdf" to URL, e.g. ".../index.html?print-pdf" -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'lib/js/reveal/css/print/pdf.css' : 'lib/js/reveal/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <div style="margin-top: 2em"> </div>
+        <h1>Optimisation, Control and Learning Ensembles for Safe Cobots</h1>
+        <div style="margin-top: 2em;text-align:center;">
+          <a href="https://alphaville.github.io" target="blank" style="color:black; text-decoration: none">Pantelis
+            Sopasakis</a>
+        </div>
+      </section>
+
+
+      <!-- 
+        
+        CHALLENGES
+      -->
+      <section data-background=var(--my_blue) data-state="plain-slide">
+        <div style="margin-top: 10%; font-size:2.6em; text-align: center; color: white">
+          Challenges
+        </div>
+      </section>
+
+      <section>
+        <h1>
+          Challenges
+        </h1>
+        <div style="text-align: center; margin-top: 3em">
+          <img src="img/challenges.jpg" alt="challenges" style="width: 90%" />
+        </div>
+      </section>
+
+      <!-- 
+        
+        LEARNING-BASED CONTROL
+      -->
+      <section data-background=var(--my_blue) data-state="plain-slide">
+        <div style="margin-top: 10%; font-size:2.6em; text-align: center; color: white">
+          Learning-based Control
+        </div>
+      </section>
+
+      <section data-background-video="mov/STOCHASTIC/pmf.mp4" data-background-video-loop="loop" data-background-size="contain"
+        data-background-video-muted="true">
+        <div class="footnote">
+          P. Sopasakis, <span class="italix">et al.</span>, "Safe learning-based risk-averse MPC," IEEE CDC, 2019.
+        </div>
+      </section>
+
+      <!-- 
+        
+        NUM. OPTIMISATION
+      -->
+      <section data-background=var(--my_blue) data-state="plain-slide">
+        <div style="margin-top: 10%; font-size:2.6em; text-align: center; color: white">
+          Numerical Optimisation
+        </div>
+      </section>
+
+      <section data-background-video="mov/MAV/out.mp4" data-background-video-loop="loop" data-background-size="cover"
+        data-background-video-muted="true">
+        <div class="footnote">
+          E. Small, P. Sopasakis, <span class="italix">et al.</span>, "Aerial navigation in obstructed environments
+          with embedded nonlinear model predictive control," IEEE Eur. Control Conf. 2019.
+        </div>
+      </section>
+
+
+
+      <!-- 
+        
+        MY RESEARCH VISION
+      -->
+      <section data-background=var(--my_blue) data-state="plain-slide">
+        <div style="margin-top: 10%; font-size:2.6em; text-align: center; color: white">
+          My Research Vision
+        </div>
+      </section>
+
+      <section>
+        <h2>Educational value</h2>
+        <div style="text-align: center; margin-top: 5%">
+          <img src="img/book.png" alt="textbook" style="width: 90pt" />
+          <img src="img/book.png" alt="textbook" style="width: 90pt" />
+        </div>
+
+        <div style="vertical-align: middle; text-align: center;  margin-top: 5%">
+          <div><span class="bold">Elegant</span> OCL framework</div>
+          <div style="margin:0.5em">$\Downarrow$</div>
+          <div>Two textbooks</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Research Team</h2>
+        <table style="width:100%; vertical-align: middle; margin-top: 3em">
+          <tr>
+            <td style="vertical-align: middle">
+              Funding agencies...
+              <ul style="list-style-type: circle; margin-top: 0.25em">
+                <li>EPSRC NIA</li>
+                <li>H2020</li>
+                <li>Leverhulme</li>
+                <li>Newton</li>
+                <li>Royal Engineering</li>
+              </ul>
+            </td>
+            <td style="vertical-align: middle; text-align: center">
+              <div id="two-phd-students">
+                <img src="img/study.jpeg" alt="PhD student" style="width: 100pt" />
+                <img src="img/study.jpeg" alt="PhD student" style="width: 100pt" />
+              </div>
+              <div>
+                Two PhD students
+              </div>
+              <div style="margin-top: 0.7em; margin-bottom: 0.7em">+</div>
+              <div><img src="img/student_cap.png" alt="Postdoc" style="width: 100pt" /></div>
+              <div>
+                One postdoc
+              </div>
+            </td>
+          </tr>
+        </table>
+      </section>
+
+
+      <section data-background-image="img/collaborators.png" data-background-size="cover" data-background-opacity=1>
+        <h2>Collaborations</h2>
+        <div class="footnote">
+          Footnote
+        </div>
+      </section>
+
+
+      <!-- END OF PRESENTATION -->
+
+      <!-- Reveal.js and Template Options -->
+      <script src="lib/js/reveal/lib/js/head.min.js"></script>
+      <script src="lib/js/reveal/js/reveal.js"></script>
+      <script>
+        Reveal.initialize({
+          history: true,
+          transition: 'fade', // none/fade/slide/convex/concave/zoom
+          transitionSpeed: 'fast', // default/fast/slow
+          controls: true,
+          center: false,
+          touch: true,
+          slideNumber: false,
+          maxScale: 10.0,
+
+          math: {
+            mathjax: 'lib/js/mathjax/MathJax.js',
+            config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+          },
+
+          dependencies: [
+            { src: 'lib/js/reveal/lib/js/classList.js' },
+            { src: 'lib/js/reveal/plugin/math/math.js', async: true },
+            { src: 'lib/js/reveal/plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+            { src: 'lib/js/reveal/plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+            { src: 'lib/js/reveal/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+          ]
+        });
+      </script>
+    </div>
+  </div>
+</body>
+
+</html>

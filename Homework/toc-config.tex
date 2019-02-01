@@ -1,0 +1,146 @@
+\usepackage{etoolbox}
+
+% Modifications to amsart ToC-related macros...
+\makeatletter
+\let\old@tocline\@tocline
+\let\section@tocline\@tocline
+% Insert a dotted ToC-line for \subsection and \subsubsection only
+\newcommand{\subsection@dotsep}{4.5}
+\newcommand{\subsubsection@dotsep}{4.5}
+\patchcmd{\@tocline}
+  {\hfil}
+  {\nobreak
+     \leaders\hbox{$\m@th
+        \mkern \subsection@dotsep mu\hbox{.}\mkern \subsection@dotsep mu$}\hfill
+     \nobreak}{}{}
+\let\subsection@tocline\@tocline
+\let\@tocline\old@tocline
+
+\patchcmd{\@tocline}
+  {\hfil}
+  {\nobreak
+     \leaders\hbox{$\m@th
+        \mkern \subsubsection@dotsep mu\hbox{.}\mkern \subsubsection@dotsep mu$}\hfill
+     \nobreak}{}{}
+\let\subsubsection@tocline\@tocline
+\let\@tocline\old@tocline
+
+\let\old@l@subsection\l@subsection
+\let\old@l@subsubsection\l@subsubsection
+
+\def\@tocwriteb#1#2#3{%
+  \begingroup
+    \@xp\def\csname #2@tocline\endcsname##1##2##3##4##5##6{%
+      \ifnum##1>\c@tocdepth
+      \else \sbox\z@{##5\let\indentlabel\@tochangmeasure##6}\fi}%
+    \csname l@#2\endcsname{#1{\csname#2name\endcsname}{\@secnumber}{}}%
+  \endgroup
+  \addcontentsline{toc}{#2}%
+    {\protect#1{\csname#2name\endcsname}{\@secnumber}{#3}}}%
+
+% Handle section-specific indentation and number width of ToC-related entries
+\newlength{\@tocsectionindent}
+\newlength{\@tocsubsectionindent}
+\newlength{\@tocsubsubsectionindent}
+\newlength{\@tocsectionnumwidth}
+\newlength{\@tocsubsectionnumwidth}
+\newlength{\@tocsubsubsectionnumwidth}
+\newcommand{\settocsectionnumwidth}[1]{\setlength{\@tocsectionnumwidth}{#1}}
+\newcommand{\settocsubsectionnumwidth}[1]{\setlength{\@tocsubsectionnumwidth}{#1}}
+\newcommand{\settocsubsubsectionnumwidth}[1]{\setlength{\@tocsubsubsectionnumwidth}{#1}}
+\newcommand{\settocsectionindent}[1]{\setlength{\@tocsectionindent}{#1}}
+\newcommand{\settocsubsectionindent}[1]{\setlength{\@tocsubsectionindent}{#1}}
+\newcommand{\settocsubsubsectionindent}[1]{\setlength{\@tocsubsubsectionindent}{#1}}
+
+% Handle section-specific formatting and vertical skip of ToC-related entries
+% \@tocline{<level>}{<vspace>}{<indent>}{<numberwidth>}{<extra>}{<text>}{<pagenum>}
+\renewcommand{\l@section}{\section@tocline{1}{\@tocsectionvskip}{\@tocsectionindent}{}{\@tocsectionformat}}%
+\renewcommand{\l@subsection}{\subsection@tocline{1}{\@tocsubsectionvskip}{\@tocsubsectionindent}{}{\@tocsubsectionformat}}%
+\renewcommand{\l@subsubsection}{\subsubsection@tocline{1}{\@tocsubsubsectionvskip}{\@tocsubsubsectionindent}{}{\@tocsubsubsectionformat}}%
+\newcommand{\@tocsectionformat}{}
+\newcommand{\@tocsubsectionformat}{}
+\newcommand{\@tocsubsubsectionformat}{}
+\expandafter\def\csname toc@1format\endcsname{\@tocsectionformat}
+\expandafter\def\csname toc@2format\endcsname{\@tocsubsectionformat}
+\expandafter\def\csname toc@3format\endcsname{\@tocsubsubsectionformat}
+\newcommand{\settocsectionformat}[1]{\renewcommand{\@tocsectionformat}{#1}}
+\newcommand{\settocsubsectionformat}[1]{\renewcommand{\@tocsubsectionformat}{#1}}
+\newcommand{\settocsubsubsectionformat}[1]{\renewcommand{\@tocsubsubsectionformat}{#1}}
+\newlength{\@tocsectionvskip}
+\newcommand{\settocsectionvskip}[1]{\setlength{\@tocsectionvskip}{#1}}
+\newlength{\@tocsubsectionvskip}
+\newcommand{\settocsubsectionvskip}[1]{\setlength{\@tocsubsectionvskip}{#1}}
+\newlength{\@tocsubsubsectionvskip}
+\newcommand{\settocsubsubsectionvskip}[1]{\setlength{\@tocsubsubsectionvskip}{#1}}
+
+% Adjust section-specific ToC-related macros to have a fixed-width numbering framework
+\patchcmd{\tocsection}{\indentlabel}{\makebox[\@tocsectionnumwidth][l]}{}{}
+\patchcmd{\tocsubsection}{\indentlabel}{\makebox[\@tocsubsectionnumwidth][l]}{}{}
+\patchcmd{\tocsubsubsection}{\indentlabel}{\makebox[\@tocsubsubsectionnumwidth][l]}{}{}
+
+% Allow for section-specific page numbering format of ToC-related entries
+\newcommand{\@sectypepnumformat}{}
+\renewcommand{\contentsline}[1]{%
+  \expandafter\let\expandafter\@sectypepnumformat\csname @toc#1pnumformat\endcsname%
+  \csname l@#1\endcsname}
+\newcommand{\@tocsectionpnumformat}{}
+\newcommand{\@tocsubsectionpnumformat}{}
+\newcommand{\@tocsubsubsectionpnumformat}{}
+\newcommand{\setsectionpnumformat}[1]{\renewcommand{\@tocsectionpnumformat}{#1}}
+\newcommand{\setsubsectionpnumformat}[1]{\renewcommand{\@tocsubsectionpnumformat}{#1}}
+\newcommand{\setsubsubsectionpnumformat}[1]{\renewcommand{\@tocsubsubsectionpnumformat}{#1}}
+\renewcommand{\@tocpagenum}[1]{%
+  \hfill {\mdseries\@sectypepnumformat #1}}
+
+% Small correction to Appendix, since it's still a \section which should be handled differently
+\let\oldappendix\appendix
+\renewcommand{\appendix}{%
+  \leavevmode\oldappendix%
+  \addtocontents{toc}{%
+    \protect\settowidth{\protect\@tocsectionnumwidth}{\protect\@tocsectionformat\sectionname\space}%
+    \protect\addtolength{\protect\@tocsectionnumwidth}{2em}}%
+}
+\makeatother
+
+% #1 (default is as required)
+
+% #2
+
+% #3
+\makeatletter
+\settocsectionnumwidth{2em}
+\settocsubsectionnumwidth{2.5em}
+\settocsubsubsectionnumwidth{3em}
+\settocsectionindent{1pc}%
+\settocsubsectionindent{\dimexpr\@tocsectionindent+\@tocsectionnumwidth}%
+\settocsubsubsectionindent{\dimexpr\@tocsubsectionindent+\@tocsubsectionnumwidth}%
+\makeatother
+
+% #4 & #5
+\settocsectionvskip{10pt}
+\settocsubsectionvskip{0pt}
+\settocsubsubsectionvskip{0pt}
+
+% #6 & #7
+% See #3
+
+% #8
+\renewcommand{\contentsnamefont}{\bfseries\Large}
+
+% #9
+\settocsectionformat{\bfseries}
+\settocsubsectionformat{\mdseries}
+\settocsubsubsectionformat{\mdseries}
+\setsectionpnumformat{\bfseries}
+\setsubsectionpnumformat{\mdseries}
+\setsubsubsectionpnumformat{\mdseries}
+
+% #10
+% Insert the following command inside your text where you want the ToC to have a page break
+\newcommand{\tocpagebreak}{\leavevmode\addtocontents{toc}{\protect\clearpage}}
+
+% #11
+\let\oldtableofcontents\tableofcontents
+\renewcommand{\tableofcontents}{%
+  \vspace*{-\linespacing}% Default gap to top of CONTENTS is \linespacing.
+  \oldtableofcontents}

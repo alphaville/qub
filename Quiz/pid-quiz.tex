@@ -90,7 +90,17 @@
 
 \maketitle
 Quiz questions
+\textbf{}
 \begin{enumerate} 
+ 
+ \item The \textbf{input} signal to a \textbf{controller} is 
+    \begin{enumerate}
+     \item The error, $e(t) = y^{sp}(t) - y^{m}(t)$
+     \item The set-point, $y^{sp}(t)$
+     \item The measured system variable
+     \item The control action
+    \end{enumerate}
+
  \item The \textbf{limit} of the \textbf{error} at infinity is called...
     \begin{enumerate}
      \item Offset
@@ -98,6 +108,14 @@ Quiz questions
      \item Measurement
      \item Feedback
     \end{enumerate}
+    
+ \item What is the \textbf{main reason} for using the \textbf{integral} in a PID controller?
+  \begin{enumerate}
+   \item So that the error converges
+   \item The controlled variable ultimately returns to its set point after a disturbance 
+   \item The derivative of the controlled variable goes to zero
+   \item The controlled variable does not oscillate
+  \end{enumerate}    
     
  \item Which component of a PID controller is used to \textbf{eliminate offset}?
   \begin{enumerate}
@@ -107,13 +125,7 @@ Quiz questions
    \item Feedback
   \end{enumerate}
 
- \item Which component of a PID controller is used to \textbf{suppress oscillations}?
-  \begin{enumerate}
-   \item Proportional (P)
-   \item Integral (I)
-   \item Derivative (D)
-   \item Set-point
-  \end{enumerate}
+
 
   \item A system is controlled with a P controller and it \textbf{oscillates} too much. 
         We should...
@@ -123,13 +135,13 @@ Quiz questions
   \end{enumerate}
   
   
-  \item A quadcopter's altitude is controlled with a PID controller and there
+  \item A quadcopter's altitude is controlled with a PD controller and there
         is \textbf{offset}. We should...        
   \begin{enumerate}
    \item Increase the proportional gain
    \item Decrease the proportional gain
-   \item Increase the integral gain
-   \item Decrease the integral gain
+   \item Decrease the derivative gain
+   \item Introduce an integral mode
   \end{enumerate}
         
   \item An aircraft's roll is controlled with a PID controller, but it \textbf{wobbles}
@@ -141,13 +153,7 @@ Quiz questions
    \item Decrease the derivative gain
   \end{enumerate}
   
-  \item What is the main reason for using the integral in a PID controller?
-  \begin{enumerate}
-   \item So that the error converges
-   \item The controlled variable ultimately returns to its set point after a disturbance 
-   \item The derivative of the controlled variable goes to zero
-   \item ?
-  \end{enumerate}
+  
 
 
   \item In a software implementation of the PID controller, the \textbf{integral} 
