@@ -1,8 +1,9 @@
 function plot_controlled_car(x_cache, u_cache, car)
+%PLOT_CONTROLLED_CAR plots 
 
 Nsim = length(u_cache);
-x_max = 1.05*max(x_cache(1,:));
-y_max = 1.05*max(abs(x_cache(2,:)));
+x_max = 1.05 * max(x_cache(1,:));
+y_max = 1.05 * max(abs(x_cache(2,:)));
 cmap = colormap('lines');
 color = cmap(1, :);
 

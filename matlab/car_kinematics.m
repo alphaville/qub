@@ -23,11 +23,11 @@ function df = car_kinematics(x, u, car)
 % θ' = (v/L) * tan(u),
 %
 %See also
-%car_move, make_car
+%car_move, make_car, car_move, car_runner
 
 theta = x(3);
 
-v = car.v;
+v = car.v;  
 L = car.L;
 
 x_dot = v * cos(theta);

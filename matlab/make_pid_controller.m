@@ -1,5 +1,10 @@
 function controller = make_pid_controller(Kp, Kd, Ki, car)
-%MAKE_PID_CONTROLLER constructs a PID controller with given parameters
+%MAKE_PID_CONTROLLER constructs a discrete-time PID controller with given 
+%(continuous-time) parameters.
+%
+%The derivative of the error is approximated using the backward successive
+%differences formula and the integral is approximated using the rectangle
+%approximation rule.
 %
 %Syntax:
 %controller = make_pid_controller(Kp, Kd, Ki, car)
@@ -11,7 +16,7 @@ function controller = make_pid_controller(Kp, Kd, Ki, car)
 % car  structure with car parameters
 %
 %See also
-% make_car, car_simulate, car_kinematics, car_move
+% make_car, car_simulate, car_kinematics, car_move, car_runner
 
 
 controller.Kp = Kp;

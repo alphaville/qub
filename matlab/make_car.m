@@ -9,7 +9,7 @@ function car = make_car()
 % - Ts           sampling time in s
 %
 %See also
-%car_kinematics, car_move
+%car_kinematics, car_move, car_runner
 
 car.L = 0.9;               % car length (m)                           90 cm
 car.w = car.L/2;           % car width (m)                            45 cm
