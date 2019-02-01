@@ -22,8 +22,10 @@
 /* These are the official KUL colors, see KUL style guide. */
 :root {
   --bck_opacity: 0.15;
+  --bck_opacity_high: 0.05;
   --my_blue: rgb( 25, 94, 175);
   --my_red: rgb( 217, 26, 40);
+  --my_orange: rgb(236, 70, 19);
   --my_green: rgb(117, 162, 54);
   --my_lightgreen: rgb(182, 233, 116);
   --my_lightblue: rgb(117, 170, 235);
@@ -90,13 +92,17 @@ body {
 
 /* Another heading, smaller and black */
 .reveal h2 {
-  font-size: 1.1em;
-  margin: 5px 0 15px 0;
+  color: var(--my_blue);
+/*  font-size: 1.6em;*/
+  font-size:1.7em;
+  text-align: center;
+  margin: 0 0 10px 0;
+  padding: 10px 10px;
 }
 
 /* Increase intentation of lists */
 .reveal ul, .reveal ol, .reveal dl {
-  margin-left: 2em;
+  margin-left: 1em;
 }
 
 /* Adapt style of slide numbers */
@@ -119,6 +125,26 @@ body {
   margin: 0px;
   padding: 0px;
 }
+
+.reveal .bold {
+  font-weight: bold;
+}
+
+.reveal .italix {
+  font-style: italic;
+}
+
+.reveal .footnote {	
+	padding-bottom: 7px;
+	padding-top: 5px;
+  text-align: left;
+	bottom: 0px;
+  width: 100%;
+  position: fixed;
+  font-size: 0.4em;
+  color: var(--my_gray);
+}
+
 
 /* ADDITIONAL STYLES <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
 
