@@ -119,9 +119,20 @@ body {
   background-color: none;
 }
 
+.reveal .centered {
+  text-align: center;
+}
+.reveal li {
+  margin: 20px 0;
+}
 .reveal .sub-header-separator {
   margin-top: 1em;
 }
+
+.reveal .half-separator {
+  margin-top: 0.5em;
+}
+
 .reveal .block-equation {
   margin-top: 1.2em;
   margin-bottom: 1.2em;
@@ -145,7 +156,7 @@ body {
 }
 
 .reveal .bold {
-  font-style: bold;
+  font-weight: bold;
 }
 
 .reveal .italix {

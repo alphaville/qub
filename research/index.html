@@ -39,10 +39,10 @@
 
   <meta name="viewport" content="width=device-width">
 
-  <link rel="stylesheet" href="lib/js/reveal/css/reveal.css"> <!-- we must first load reveal.js -->
-  <link rel="stylesheet" href="lib/css/presentation.css">
-  <link rel="stylesheet" href="lib/js/reveal/lib/css/zenburn.css">
-  <link rel="stylesheet" href="lib/css/include_fonts.css">
+  <link rel="stylesheet" href="../lib/js/reveal/css/reveal.css"> <!-- we must first load reveal.js -->
+  <link rel="stylesheet" href="../lib/css/presentation.css">
+  <link rel="stylesheet" href="../lib/js/reveal/lib/css/zenburn.css">
+  <link rel="stylesheet" href="../lib/css/include_fonts.css">
 
 
   <!-- Printing and PDF exports -->
@@ -55,6 +55,7 @@
     document.getElementsByTagName('head')[0].appendChild(link);
   </script>
 
+
 </head>
 
 <body>
@@ -63,11 +64,14 @@
 
       <section>
         <div style="margin-top: 2em"> </div>
-        <h1>OCL Ensembles for Safe Cobots</h1>
+        <h1>Optimisation, Control and Learning Ensembles</h1>
+        <h2>for Safe Intelligent Cobots</h2>
         <div style="margin-top: 2em;text-align:center;">
-          <a href="https://alphaville.github.io" target="blank" style="color:black; text-decoration: none">Pantelis
-            Sopasakis</a>
+          <a href="https://alphaville.github.io" target="blank" style="color:black; text-decoration: none">
+            <span class="bold">Pantelis Sopasakis</span>
+          </a>
         </div>
+        <div style="margin-top: 0.35em; text-align:center; font-size: 0.9em">Queen's University Belfast</div>
       </section>
 
 
@@ -90,26 +94,30 @@
           Challenges
         </h1>
         <div style="text-align: center; margin-top: 5em">
-          <img src="img/challenges.png" alt="challenges" style="width: 100%" />
+          <img src="../img/challenges.png" alt="challenges" width="900" />
         </div>
       </section>
 
       <section>
-        <h1>
-          Objectives
-        </h1>
+        <h1>Objectives</h1>
         <table style="width:100%; margin-top: 1.0em">
           <tr>
             <td style="vertical-align: middle">
-              <img src="img/roboto.gif" alt="mr_roboto" style="width: 120pt" />
+              <img src="../img/roboto.gif" alt="mr_roboto" style="width: 120pt" />
             </td>
             <td style="vertical-align: middle">
-              <img src="img/objectives.png" width="750" />
+              <img src="../img/objectives.png" width="750" />
             </td>
           </tr>
         </table>
+      </section>
 
 
+      <section>
+        <h1>Vision</h1>
+        <div class="centered" style="margin-top: 6%">
+          <img src="../img/pyramid.png" width="800" />
+        </div>
       </section>
 
       <!-- 
@@ -128,8 +136,8 @@
       <section>
         <h2>Model Predictive Control</h2>
         <div style="text-align: center; margin-top: 1em">
-          <video data-autoplay width="930" autoplay loop>
-            <source src="mov/MPC/mpc.mp4" type="video/mp4">
+          <video id="mpc-video" data-autoplay width="930" autoplay loop>
+            <source src="../mov/MPC/mpc.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -143,20 +151,20 @@
       <section>
         <h2>Certainty-Equivalent Control</h2>
         <div class="fragment replace" data-fragment-index="1">
-          <img src="img/ce-ctrl-1.png" alt="textbook" style="width: 100%" />
+          <img src="../img/ce-ctrl-1.png" alt="textbook" style="width: 100%" />
         </div>
         <div class="fragment replace" data-fragment-index="1">
-          <img src="img/ce-ctrl-2.png" alt="textbook" style="width: 100%" />
+          <img src="../img/ce-ctrl-2.png" alt="textbook" style="width: 100%" />
         </div>
       </section>
 
       <section>
         <h2>Worst-case Control</h2>
         <div class="fragment replace" data-fragment-index="1">
-          <img src="img/wc-ctrl-1.png" alt="worst case control" style="width: 100%" />
+          <img src="../img/wc-ctrl-1.png" alt="worst case control" style="width: 100%" />
         </div>
         <div class="fragment replace" data-fragment-index="1">
-          <img src="img/wc-ctrl-1.png" alt="worst case control" style="width: 100%; opacity: 0.1;" />
+          <img src="../img/wc-ctrl-1.png" alt="worst case control" style="width: 100%; opacity: 0.1;" />
           <div id="wc-mpc" style="position: absolute; top: 30%">
             <div>Worst-case MPC:</div>
             <div id="wp-mpc-formulation" class="block-equation" style="margin-left: 3em">
@@ -170,18 +178,18 @@
             <div>subject to the system dynamics and constraints.</div>
           </div> <!-- END of #wc-mpc -->
         </div>
-        <div class="fragment replace" data-fragment-index="2">
-          <img src="img/wc-ctrl-2.png" alt="textbook" style="width: 100%" />
+        <div class="fragment replace" data-fragment-index="3">
+          <img src="../img/wc-ctrl-2.png" alt="textbook" style="width: 100%" />
         </div>
       </section>
 
       <section>
         <h2>Stochastic Control</h2>
         <div class="fragment replace" data-fragment-index="1">
-          <img src="img/stoch-ctrl-1.png" alt="textbook" style="width: 100%" />
+          <img src="../img/stoch-ctrl-1.png" alt="textbook" style="width: 100%" />
         </div>
         <div class="fragment replace" data-fragment-index="1">
-          <img src="img/stoch-ctrl-1.png" alt="textbook" style="width: 100%; opacity: 0.1;" />
+          <img src="../img/stoch-ctrl-1.png" alt="textbook" style="width: 100%; opacity: 0.1;" />
           <div id="stoch-mpc" style="position: absolute; top: 20%">
             <div>Stochastic MPC:</div>
             <div id="stoch-mpc-formulation" class="block-equation" style="margin-left: 3em">
@@ -195,8 +203,8 @@
             <div>subject to the system dynamics and constraints.</div>
           </div> <!-- END of #wc-mpc -->
         </div>
-        <div class="fragment replace" data-fragment-index="1">
-          <img src="img/stoch-ctrl-2.png" alt="textbook" style="width: 100%" />
+        <div class="fragment replace" data-fragment-index="3">
+          <img src="../img/stoch-ctrl-2.png" alt="textbook" style="width: 100%" />
         </div>
       </section>
 
@@ -204,7 +212,7 @@
         <h2>Uncertainty in uncertainty</h2>
         <div style="text-align: center; margin-top: 0.2em">
           <video data-autoplay width="930" autoplay loop>
-            <source src="mov/STOCHASTIC/pmf.mp4" type="video/mp4">
+            <source src="../mov/STOCHASTIC/pmf.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -214,9 +222,136 @@
         </div>
       </section>
 
+
+      <section>
+        <h2>Measuring Risk</h2>
+        <div class="sub-header-separator"></div>
+        <div>
+          <div class="fragment replace" data-fragment-index="1" style="text-align: center">
+            <img src="../img/stochastic-case.jpg" alt="stochastic case" width="400" />
+            <img src="../img/wc-case.jpg" alt="worst case" width="400" />
+          </div>
+          <div class="fragment replace" data-fragment-index="1" style="text-align: center">
+            <img src="../img/stochastic-case.jpg" alt="stochastic case" width="220" />
+            <img src="../img/risk-case.jpg" alt="risk case" width="460" />
+            <img src="../img/wc-case.jpg" alt="worst case" width="220" />
+          </div>
+          <div class="fragment replace" data-fragment-index="3">
+            <div style="text-align: center">
+              <img src="../img/stochastic-case.jpg" alt="stochastic case" width="220" style="opacity: 0.1" />
+              <img src="../img/risk-case.jpg" alt="risk case" width="460" style="opacity: 0.1" />
+              <img src="../img/wc-case.jpg" alt="worst case" width="220" style="opacity: 0.1" />
+            </div>
+            <div style="position: absolute; top: 35%">
+              A <span class="bold">risk measure</span> maps a random cost, $Z$, to a value, $\rho(Z)$,
+              with
+              <div class="block-equation">
+                $$
+                \mathbb{E}[Z] {}\leq{} \rho(Z) {}\leq{} \max[Z]
+                $$
+              </div>
+              Well-behaving (<span class="bold">coherent</span>) risk measures:
+              <div class="block-equation">
+                $$
+                \rho(Z) {}={} \max_{\mu\in\mathcal{A}}\mathbb{E}_\mu[Z]
+                $$
+              </div>
+              where $\mathcal{A}$ is a closed, convex set called the <span class="bold">ambiguity set</span>
+              or $\rho$.
+            </div>
+          </div>
+        </div>
+
+        <div class="footnote">
+          P. Sopasakis, D. Herceg, A. Bemporad and P. Patrinos,
+          "Risk-averse model predictive control,"
+          Automatica 100, pp. 281-288, Feb. 2019.
+        </div>
+      </section>
+
       <section>
         <h2>Risk-averse MPC</h2>
         <div class="sub-header-separator"></div>
+        First attempt:
+        <div class="block-equation">
+          $$
+          \operatorname*{Minimise}_{u_0,\ldots, u_{N-1}}\rho_{w_0,\ldots, w_{N-1}}
+          \bigg[
+          \ell_N(x_N) {}+{} \sum_{t=0}^{N-1} \ell_t(x_t,u_t, w_t)
+          \bigg]
+          $$
+        </div>
+        <div>
+          subject to the system dynamics and constraints.
+        </div>
+        <div class="sub-header-separator"></div>
+        <div>
+          However,
+          <div class="half-separator"></div>
+          <ul>
+            <li>$\rho_{w_0,\ldots, w_{N-1}}$ does not measure how the uncertainty propagates</li>
+            <li>Dynamic programming does not apply</li>
+            <li>We cannot derive stability conditions</li>
+          </ul>
+        </div>
+
+
+        <div class="footnote">
+          P. Sopasakis, D. Herceg, A. Bemporad and P. Patrinos,
+          "Risk-averse model predictive control,"
+          Automatica 100, pp. 281-288, Feb. 2019.
+        </div>
+      </section>
+
+
+      <section>
+        <h2>Risk-averse MPC</h2>
+        <div class="sub-header-separator"></div>
+        <div>
+          Proper multistage formulation:
+          <div class="block-equation">
+            $$
+            \operatorname*{Minimise}_{u_0,\ldots, u_{N-1}}\rho_{w_0}
+            \Big[
+            \ell_0(x_0,u_0, w_0)
+            {}+{}
+            \rho_{w_1\mid w_0}\left[\ell_1(x_1,u_1, w_1) {}+{} \ldots{} \right]
+            \Big]
+            $$
+          </div>
+          <div>
+            subject to the system dynamics and constraints.
+          </div>
+        </div>
+        <div class="footnote">
+          P. Sopasakis, D. Herceg, A. Bemporad and P. Patrinos,
+          "Risk-averse model predictive control,"
+          Automatica 100, pp. 281-288, Feb. 2019.
+        </div>
+      </section>
+
+
+
+      <section>
+        <h2>Risk-averse MPC: Consequences</h2>
+
+        <div style="text-align: center; margin-top: 2em">
+          <div style="position: absolute">
+            A novel <span class="bold">safe</span> control framework which
+            becomes increasingly <span class="bold">less conservative</span> as more data become available.
+          </div>
+          <div id="concept-video">
+            <video data-autoplay width="670" autoplay loop>
+              <source src="../mov/STOCHASTIC/concept.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div>
+            It allows to create an <span class="bold">unexplored synergy</span>
+            of <span class="bold">control and learning</span>!
+          </div>
+        </div>
+
 
         <div class="footnote">
           P. Sopasakis, D. Herceg, A. Bemporad and P. Patrinos,
@@ -228,10 +363,14 @@
       <!-- 
         
         NUM. OPTIMISATION
+        PART-I: NONCONVEX
       -->
       <section data-background=var(--my_blue) data-state="plain-slide">
         <div style="margin-top: 10%; font-size:2.6em; text-align: center; color: white">
           Numerical Optimisation
+        </div>
+        <div style="margin-top: 3em; font-size:1em; text-align: center; color: white">
+          Nonconvex
         </div>
       </section>
 
@@ -240,11 +379,23 @@
       </section>
 
 
-      <section data-background-video="mov/MAV/out.mp4" data-background-video-loop="loop" data-background-size="cover"
+      <section data-background-video="../mov/MAV/mav-nmpc.mp4" data-background-video-loop="loop" data-background-size="cover"
         data-background-video-muted="true">
         <div class="footnote" style="color: rgba(255, 255, 255, 0.63)">
           E. Small, P. Sopasakis, <span class="italix">et al.</span>, "Aerial navigation in obstructed environments
-          with embedded nonlinear model predictive control," IEEE Eur. Control Conf., 2019.
+          with embedded nonlinear model predictive control," IEEE ECC, 2019.
+        </div>
+      </section>
+
+
+      <!-- 
+        
+        NUM. OPTIMISATION
+        PART-II: LARGE-SCALE
+      -->
+      <section data-background=var(--my_blue) data-state="plain-slide">
+        <div style="margin-top: 10%; font-size:2.6em; text-align: center; color: white">
+          Numerical Optimisation
         </div>
       </section>
 
@@ -270,8 +421,8 @@
       <section>
         <h2>Educational value</h2>
         <div style="text-align: center; margin-top: 5%">
-          <img src="img/book.png" alt="textbook" style="width: 90pt" />
-          <img src="img/book.png" alt="textbook" style="width: 90pt" />
+          <img src="../img/book.png" alt="textbook" style="width: 90pt" />
+          <img src="../img/book.png" alt="textbook" style="width: 90pt" />
         </div>
 
         <div style="vertical-align: middle; text-align: center;  margin-top: 5%">
@@ -289,24 +440,24 @@
               Funding agencies...
               <br />
               <br />
-              <img src="img/epsrc.png" alt="EPSRC" style="width: 140pt" />
-              <img src="img/h2020.jpeg" alt="EPSRC" style="width: 140pt" />
+              <img src="../img/epsrc.png" alt="EPSRC" style="width: 140pt" />
+              <img src="../img/h2020.jpeg" alt="EPSRC" style="width: 140pt" />
               <br />
               <br />
-              <img src="img/leverhulme.jpeg" alt="EPSRC" style="width: 140pt" />
-              <img src="img/rae.jpeg" alt="EPSRC" style="width: 140pt" />
+              <img src="../img/leverhulme.jpeg" alt="EPSRC" style="width: 140pt" />
+              <img src="../img/rae.jpeg" alt="EPSRC" style="width: 140pt" />
 
             </td>
             <td style="vertical-align: middle; text-align: center">
               <div id="two-phd-students">
-                <img src="img/study.jpeg" alt="PhD student" style="width: 100pt" />
-                <img id="flipped_phd" src="img/study.jpeg" alt="PhD student" style="width: 100pt" />
+                <img src="../img/study.jpeg" alt="PhD student" style="width: 100pt" />
+                <img id="flipped_phd" src="../img/study.jpeg" alt="PhD student" style="width: 100pt" />
               </div>
               <div>
                 Two PhD students
               </div>
               <div style="margin-top: 0.7em; margin-bottom: 0.7em">+</div>
-              <div><img src="img/student_cap.png" alt="Postdoc" style="width: 100pt" /></div>
+              <div><img src="../img/student_cap.png" alt="Postdoc" style="width: 100pt" /></div>
               <div>
                 One postdoc
               </div>
@@ -316,8 +467,12 @@
       </section>
 
 
-      <section data-background-image="img/collaborators.png" data-background-size="cover" data-background-opacity=0.4>
+      <section>
         <h2>Collaborations</h2>
+        <div class="sub-header-separator"></div>
+        <div style="text-align: center">
+          <img src="../img/collaborators.png" alt="collaborators" width="930" />
+        </div>
 
       </section>
 
@@ -329,15 +484,15 @@
       <section>
         <h2>Thank you for your attention</h2>
         <div style="margin-top: 0em; right:0; position: absolute">
-          <img id="flipped_roboto" src="img/roboto.gif" alt="mr_roboto flipped" style="width: 120pt" />
+          <img id="flipped_roboto" src="../img/roboto.gif" alt="mr_roboto flipped" style="width: 120pt" />
         </div>
       </section>
 
       <!-- END OF PRESENTATION -->
 
       <!-- Reveal.js and Template Options -->
-      <script src="lib/js/reveal/lib/js/head.min.js"></script>
-      <script src="lib/js/reveal/js/reveal.js"></script>
+      <script src="../lib/js/reveal/lib/js/head.min.js"></script>
+      <script src="../lib/js/reveal/js/reveal.js"></script>
       <script>
         Reveal.initialize({
           history: true,
@@ -350,18 +505,23 @@
           maxScale: 10.0,
 
           math: {
-            mathjax: 'lib/js/mathjax/MathJax.js',
+            mathjax: '../lib/js/mathjax/MathJax.js',
             config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
           },
 
           dependencies: [
-            { src: 'lib/js/reveal/lib/js/classList.js' },
-            { src: 'lib/js/reveal/plugin/math/math.js', async: true },
-            { src: 'lib/js/reveal/plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
-            { src: 'lib/js/reveal/plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
-            { src: 'lib/js/reveal/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+            { src: '../lib/js/reveal/lib/js/classList.js' },
+            { src: '../lib/js/reveal/plugin/math/math.js', async: true },
+            { src: '../lib/js/reveal/plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+            { src: '../lib/js/reveal/plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+            { src: '../lib/js/reveal/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
           ]
         });
+      </script>
+
+      <script>
+        var vid = document.getElementById("mpc-video");
+        vid.playbackRate = 2.5;
       </script>
     </div>
   </div>

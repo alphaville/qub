@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <!--
+  Copyright 2019 Pantelis Sopasakis
+
+  This work is licensed under the Attribution 4.0 International CC licence 
+  (see https://creativecommons.org/licenses/by/4.0/)
+
+  You are free to:
+    Share — copy and redistribute the material in any medium or format
+    Adapt — remix, transform, and build upon the material
+    for any purpose, even commercially.
+
+  The licensor cannot revoke these freedoms as long as you follow the license terms.
+
+  Under the following terms:
+    Attribution — You must give appropriate credit, provide a link to the license, 
+    and indicate if changes were made. You may do so in any reasonable manner, but 
+    not in any way that suggests the licensor endorses you or your use.
+
+    No additional restrictions — You may not apply legal terms or technological measures
+     that legally restrict others from doing anything the license permits.
+
+  Notices:
+    You do not have to comply with the license for elements of the material in the public 
+    domain or where your use is permitted by an applicable exception or limitation.
+
+    No warranties are given. The license may not give you all of the permissions necessary 
+    for your intended use. For example, other rights such as publicity, privacy, or moral 
+    rights may limit how you use the material.
+
+  -->
+
+  <title>PID and its Software Implementation</title>
+
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" href="../lib/js/reveal/css/reveal.css">
+  <link rel="stylesheet" href="../lib/js/reveal/lib/css/zenburn.css">
+  <link rel="stylesheet" href="../lib/css/include_fonts.css">
+  <link rel="stylesheet" href="../lib/css/presentation.css">
+
+  <!-- Printing and PDF exports -->
+  <!-- usage: add "?print-pdf" to URL, e.g. ".../index.html?print-pdf" -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? '../lib/js/reveal/css/print/pdf.css' : '../lib/js/reveal/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <div style="margin-top: 2em"> </div>
+        <h1>The PID Controller</h1>
+        <div style="margin-top: 1em;text-align:center; color:var(--my_blue)">
+          and its Software Implementation
+        </div>
+        <div style="margin-top: 2em;text-align:center; color:var(--my_lightgray)">
+          a gentle introduction
+        </div>
+        <div style="margin-top: 2em;text-align:center;">
+          <a href="https://alphaville.github.io" target="blank" style="color:black; text-decoration: none">Pantelis
+            Sopasakis</a>
+        </div>
+      </section>
+
+
+      <!-- 
+        
+        Control in general 
+        A few examples
+      -->
+      <section data-background=var(--my_blue) data-state="plain-slide">
+        <div style="margin-top: 10%; font-size:2.6em; text-align: center; color: white">
+          What is control?
+        </div>
+        <div style="margin-top: 10%; font-size:1.5em; text-align: center; color: white">
+          a few examples...
+        </div>
+      </section>
+
+      <section data-background-image="../img/shower.jpg" data-background-size="contain">
+      </section>
+
+      <section data-background-image="../img/shower.jpg" data-background-size="contain" data-background-opacity="var(--bck_opacity_high)">
+        <div style="margin-top: 10%; font-size:1.0em; text-align: left; color: black">
+          Define (error) = (set point) - (measurement), that is
+        </div>
+        <div style="margin-top: 1em; font-size:1.0em; text-align: left; color: black">
+          $$e(t) = y^{\mathrm{sp}}(t) - y(t)$$
+        </div>
+        <div style="margin-top: 1em; font-size:1.0em; text-align: left; color: black">
+          If <span style="color:var(--my_green)">$e(t){}={}0$</span> (perfect!) $\Rightarrow$ enjoy!
+        </div>
+        <div style="margin-top: 1em; font-size:1.0em; text-align: left; color: black">
+          If <span style="color:var(--my_blue)">$e(t){}>{}0$</span> (too cold!) $\Rightarrow$ warm up
+        </div>
+        <div style="margin-top: 1em; font-size:1.0em; text-align: left; color: black">
+          If <span style="color:var(--my_red)">$e(t) {}&lt;{} 0$</span> (too hot!) $\Rightarrow$ cool down
+        </div>
+      </section>
+
+
+      <section data-background-image="../img/car.jpg" data-background-size="contain">
+      </section>
+
+      <section data-background-image="../img/car.jpg" data-background-size="contain" data-background-opacity="var(--bck_opacity_high)">
+        <div style="margin-top: 10%; font-size:1.0em; text-align: left; color: black">
+          Define (error) = (set point) - (measurement), that is
+        </div>
+        <div style="margin-top: 1em; font-size:1.0em; text-align: left; color: black">
+          $$e(t) = y^{\mathrm{sp}}(t) - y(t)$$
+        </div>
+        <div style="margin-top: 1em; font-size:1.0em; text-align: left; color: black">
+          If <span style="color:var(--my_green)">$e(t){}={}0$</span> (perfect!) $\Rightarrow$ keep going!
+        </div>
+        <div style="margin-top: 1em; font-size:1.0em; text-align: left; color: black">
+          If <span style="color:var(--my_blue)">$e(t){}>{}0$</span> (too slow!) $\Rightarrow$ speed up
+        </div>
+        <div style="margin-top: 1em; font-size:1.0em; text-align: left; color: black">
+          If <span style="color:var(--my_red)">$e(t) {}&lt;{} 0$</span> (too fast!) $\Rightarrow$ slow down
+        </div>
+      </section>
+
+      <section>
+        <section data-background-image="../img/track.jpg" data-background-size="contain">
+        </section>
+        <section data-background-image="../img/airplane.jpg" data-background-size="contain">
+        </section>
+      </section>
+
+
+      <!-- 
+        
+        P-Controller 
+      -->
+      <section data-background=var(--my_blue) data-state="plain-slide">
+        <div style="margin-top: 20%; font-size:2.6em; text-align: center; color: white">
+          The P-Controller
+        </div>
+        <div style="margin-top: 1.05em; font-size:1.0em; text-align: center; color: white">
+          Proportional Controller
+        </div>
+      </section>
+
+
+      <section data-background-video="../mov/P/p-concept.mp4" data-background-video-loop="loop" data-background-size="contain"
+        data-background-video-muted="true">
+      </section>
+
+      <section data-background-video="../mov/P/p-concept.mp4" data-background-video-loop="loop" data-background-size="contain"
+        data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
+
+        <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
+          Steering is <span style="color:var(--my_red)">proportional</span> to <span style="color:var(--my_red)">error</span>
+        </div>
+
+        <div class="fragment fade-up" data-fragment-index="2" style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0;">
+          <div style="margin-top: 5%; font-size:1.8em; color:black; text-align:center;">
+            $$u(t) = K_p e(t)$$
+          </div>
+        </div>
+      </section>
+
+      <section data-background-video="../mov/P/P_K0.01.mp4" data-background-video-loop="loop" data-background-size="contain"
+        data-background-video-muted="true">
+      </section>
+
+      <section data-background-video="../mov/P/P_K0.01.mp4" data-background-video-loop="loop" data-background-size="contain"
+        data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
+        <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
+          Too <span style="color:var(--my_red)">slow</span>! Let's increase $K_p$.
+        </div>
+      </section>
+
+      <section data-background-video="../mov/P/P_K0.06.mp4" data-background-video-loop="loop" data-background-size="contain"
+        data-background-video-muted="true">
+      </section>
+
+      <section data-background-video="../mov/P/P_K0.06.mp4" data-background-video-loop="loop" data-background-size="contain"
+        data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
+        <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
+          Too <span style="color:var(--my_red)">oscillatory</span>!
+        </div>
+        <div style="margin-top: 1em; font-size:1em; color:black; text-align:center;">
+          What if we increase $K_p$ even more?
+        </div>
+      </section>
+
+      <section data-background-video="../mov/P/P_K0.2.mp4" data-background-video-loop="loop" data-background-size="contain"
+        data-background-video-muted="true">
+      </section>
+
+      <section data-background-video="../mov/P/P_K0.2.mp4" data-background-video-loop="loop" data-background-size="contain"
+        data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
+        <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
+          Unacceptable!
+        </div>
+      </section>
+
+      <section data-background-image="../img/p_gains.jpg" data-background-size="contain">
+      </section>
+
+      <section data-background-image="../img/p_gains.jpg" data-background-size="contain" data-background-opacity="var(--bck_opacity)">
+        <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
+          Increase $K_p$ for a <span style="color:var(--my_red)">faster</span> response, which may
+          lead to <span style="color:var(--my_red)">oscillations</span>
+        </div>
+      </section>
+
+
+      <!-- 
+        
+        PD-Controller 
+      -->
+      <section data-background=var(--my_blue) data-state="plain-slide">
+        <div style="margin-top: 20%; font-size:2.6em; text-align: center; color: white">
+          The PD-Controller
+        </div>
+        <div style="margin-top: 1.05em; font-size:1.0em; text-align: center; color: white">
+          Proportional-Derivative Controller
+        </div>
+      </section>
+
+      <section data-background-video="../mov/PD/pd-concept.mp4" data-background-video-loop="loop" data-background-size="contain"
+        data-background-video-muted="true">
+      </section>
+
+      <section data-background-video="../mov/PD/pd-concept.mp4" data-background-video-loop="loop" data-background-size="contain"
+        data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
+        <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
+          The control action is
+        </div>
+        <div style="margin-top: 1em; font-size:1.5em; color:black; text-align:center;">
+          $u(t)$ ${}={}$ <span style="color:var(--my_lightblue)">$K_p e(t)$</span> ${}+{}$ <span style="color:var(--my_red)">$K_d
+            \dot{e}(t)$</span>
+        </div>
+      </section>
+
+      <section data-background-video="../mov/PD/PD_K0.2_Kd0.03.mp4" data-background-video-loop="loop"
+        data-background-size="contain" data-background-video-muted="true">
+      </section>
+
+      <section data-background-video="../mov/PD/PD_K0.2_Kd0.03.mp4" data-background-video-loop="loop"
+        data-background-size="contain" data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
+        <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
+          That's better!
+        </div>
+        <div style="margin-top: 1em; font-size:1em; color:black; text-align:center;">
+          Let's <span style="color:var(--my_red)">increase $K_d$</span> even more...
+        </div>
+      </section>
+
+
+      <section data-background-video="../mov/PD/PD_K0.2_Kd0.06.mp4" data-background-video-loop="loop"
+        data-background-size="contain" data-background-video-muted="true">
+      </section>
+
+      <section data-background-video="../mov/PD/PD_K0.2_Kd0.06.mp4" data-background-video-loop="loop"
+        data-background-size="contain" data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
+        <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
+          This is less oscillatory
+        </div>
+        <div style="margin-top: 1em; font-size:1em; color:black; text-align:center;">
+          Let's <span style="color:var(--my_red)">eliminate</span> the oscillations!
+        </div>
+      </section>
+
+      <section data-background-video="../mov/PD/PD_K0.2_Kd0.12.mp4" data-background-video-loop="loop"
+        data-background-size="contain" data-background-video-muted="true">
+      </section>
+
+      <section data-background-video="../mov/PD/PD_K0.2_Kd0.12.mp4" data-background-video-loop="loop"
+        data-background-size="contain" data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
+        <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
+          By increasing $K_d$ we have <span style="color:var(--my_red)">eliminated</span> the oscillations!
+        </div>
+      </section>
+
+      <section data-background-image="../img/pd_gains.jpg" data-background-size="contain">
+      </section>
+
+      <section data-background-image="../img/pd_gains.jpg" data-background-size="contain" data-background-opacity="var(--bck_opacity)">
+        <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
+          Increase $K_d$ to suppress the <span style="color:var(--my_red)">oscillations</span>
+        </div>
+      </section>
+
+      <section data-background-image="../img/pd_gains_sweet_spot.jpg" data-background-size="contain">
+      </section>
+
+      <section data-background-image="../img/pd_gains_sweet_spot.jpg" data-background-size="contain"
+        data-background-opacity="var(--bck_opacity)">
+        <div style="margin-top: 15%; font-size:2em; color:black; text-align:center;">
+          $K_d$: too low $\Rightarrow$ Underdamped
+        </div>
+        <div style="margin-top: 1em; font-size:1em; color:black; text-align:center;">
+          (oscillatory behaviour)
+        </div>
+        <div class="fragment">
+          <div style="margin-top: 1em; font-size:2em; color:black; text-align:center;">
+            $K_d$: too high $\Rightarrow$ Overdamped
+          </div>
+          <div style="margin-top: 1em; font-size:1em; color:black; text-align:center;">
+            (sluggish behaviour)
+          </div>
+        </div>
+      </section>
+
+      <section data-background-image="../img/pd_gains_Kp_effect.jpg" data-background-size="contain">
+      </section>
+
+      <section data-background-image="../img/pd_gains_Kp_effect.jpg" data-background-size="contain"
+        data-background-opacity="var(--bck_opacity)">
+        <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
+          Increase $K_p$ for a <span style="color:var(--my_red)">faster</span> response, which may
+          lead to <span style="color:var(--my_red)">oscillations</span>
+        </div>
+      </section>
+
+
+
+      <!--
+
+        PID-controller
+      -->
+      <section data-background=var(--my_blue) data-state="plain-slide">
+        <div style="margin-top: 20%; font-size:2.6em; text-align: center; color: white">
+          The PID-Controller
+        </div>
+        <div style="margin-top: 1.05em; font-size:1.0em; text-align: center; color: white">
+          Proportional-Integral-Derivative Controller
+        </div>
+      </section>
+
+      <section data-background=var(--my_blue) data-background-video="../mov/wtf.mp4" data-background-video-loop="loop"
+        data-background-size="cover" data-background-video-muted="true" data-background-opacity="0.75">
+        <div style="margin-top: 10%; font-size:4.3em; text-align: center; color: rgb(255, 0, 55)">
+          Warning!
+        </div>
+        <div style="margin-top: 1.2em; font-size:1.1em; text-align: center; color: black">
+          All models are wrong*
+        </div>
+        <div style="margin-top: 5em; font-size:0.7em; text-align: center; color: black">
+          * George Box, 1976
+        </div>
+      </section>
+
+
+      <section data-background-video="../mov/PID/PID_offset_noint.mp4" data-background-video-loop="loop"
+        data-background-size="contain" data-background-video-muted="true">
+      </section>
+
+      <section data-background-video="../mov/PID/PID_offset_noint.mp4" data-background-video-loop="loop"
+        data-background-size="contain" data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
+        <div style="margin-top: 10%; font-size:2em; color:black; text-align:center;">
+          Offset = $ \lim_{t\to\infty} e(t)$
+        </div>
+        <div class="fragment" style="margin-top: 2em; font-size:1em; color:black; text-align:center;">
+          We must eliminate the offset!
+        </div>
+        <div class="fragment" style="margin-top: 2em; font-size:1em; color:black; text-align:center;">
+          Define <span style="color:var(--my_green)">$I(t) = \int_0^t e(\tau)\mathrm{d}\tau$</span>
+        </div>
+      </section>
+
+      <section data-background-video="../mov/PID/PID_offset_int.mp4" data-background-video-loop="loop"
+        data-background-size="contain" data-background-video-muted="true">
+      </section>
+
+      <section data-background-video="../mov/PID/PID_offset_int.mp4" data-background-video-loop="loop"
+        data-background-size="contain" data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
+        <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
+          The integral <span style="color:var(--my_red)">diverges</span>
+        </div>
+        <div style="margin-top: 1em; font-size:1em; color:black; text-align:center;">
+          because $e(t)$ fails to converge to zero...
+        </div>
+      </section>
+
+      <section data-background-video="../mov/PID/PID_offset_int.mp4" data-background-video-loop="loop"
+        data-background-size="contain" data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
+        <div style="margin-top: 15%; font-size:1.5em; color:black; text-align:center;">
+          Let's plug the <span style="color:var(--my_green)">integral</span> into the controller...
+        </div>
+        <div style="margin-top: 1.5em; font-size:1.5em; color:black; text-align:center;">
+          $u(t)$ ${}={}$ <span style="color:var(--my_lightblue)">$K_p e(t)$</span> ${}+{}$ <span style="color:var(--my_red)">$K_d
+            \dot{e}(t)$</span> ${}+{}$ <span style="color:var(--my_green)">$K_i I(t)$</span>
+        </div>
+      </section>
+
+      <section data-background-video="../mov/PID/PID.mp4" data-background-video-loop="loop" data-background-size="contain"
+        data-background-video-muted="true">
+      </section>
+
+      <section data-background-video="../mov/PID/PID.mp4" data-background-video-loop="loop" data-background-size="contain"
+        data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
+        <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
+          No Offset!
+        </div>
+      </section>
+
+      <section data-background-image="../img/Ki-effect.jpg" data-background-size="contain">
+      </section>
+
+
+      <!-- 
+        
+        Software implementation of PID
+      -->
+      <section data-background=var(--my_blue) data-state="plain-slide">
+        <div style="margin-top: 10%; font-size:2.6em; text-align: center; color: white">
+          Software Implementation of PID
+        </div>
+      </section>
+
+      <section data-background-image="../img/discrete1.jpg" data-background-size="contain">
+      </section>
+
+      <section data-background-image="../img/discrete2.jpg" data-background-size="contain">
+        <div style="font-size:1.0em; text-align: left; color: blue; margin-top: 50%">
+          $$\frac{\mathrm{d}e(t_k)}{\mathrm{d}t} \approx \frac{e(t_k) - e(t_{k-1})}{T_s}$$
+        </div>
+        <div style="font-size:0.7em; text-align: center; color: black; margin-top: 1em">
+          for $k=1,2,\ldots$
+        </div>
+      </section>
+
+      <section>
+        <section data-background-image="../img/discrete3.jpg" data-background-size="contain">
+          <div style="font-size:1.0em; text-align: left; color: magenta; margin-top: 50%">
+            $$\int_{t_{k-1}}^{t_k}e(\tau)\mathrm{d}\tau \approx T_s e(t_k)$$
+          </div>
+        </section>
+        <section data-background-image="../img/discrete3b.jpg" data-background-size="contain">
+          <div style="font-size:1.0em; text-align: center; color: magenta; margin-top: 50%">
+            $$\int_{t_{k-1}}^{t_k}e(\tau)\mathrm{d}\tau \approx \tfrac{T_s}{2} (e(t_k) - e(t_{k-1})$$
+          </div>
+          <div style="font-size:0.5em; text-align: center; color: black; margin-top: 1em">
+            (See Homework...)
+          </div>
+        </section>
+      </section>
+
+      <section data-background-image="../img/discrete5.jpg" data-background-size="contain">
+        <div style="font-size:1.0em; text-align: left; color: black; margin-top: 50%">
+          $$I(t_{k}) {}\approx{} \sum_{i=1}^{k}T_s e(t_k)$$
+        </div>
+      </section>
+
+      <section data-transition="none">
+        <h1>Discrete-time PID</h1>
+        <div style="margin-top: 10%; font-size:1.0em; text-align: left; color: black">
+          Discrete-time PID controller
+        </div>
+        <div style="font-size:1.0em; text-align: left; color: black">
+          $\begin{align}u(t_k) ={}& \underbrace{K_p e(t_k)}_{\text{Prop.}}
+          +
+          \underbrace{K_d \frac{e(t_k) - e(t_{k-1})}{T_s}}_{\text{Deriv. Approx.}}
+          +
+          \underbrace{
+          K_i
+          \sum_{i=0}^{k}
+          T_s e(t_i)
+          }_{\text{Integral Approx.}}
+          \end{align}$
+        </div>
+
+      </section>
+
+      <section data-transition="none">
+        <h1>Discrete-time PID</h1>
+        <div style="margin-top: 10%; font-size:1.0em; text-align: left; color: black">
+          Discrete-time PID controller
+        </div>
+        <div style="font-size:1.0em; text-align: left; color: black">
+          $\begin{align}u(t_k) ={}& K_p e(t_k) + K_d \frac{e(t_k) - e(t_{k-1})}{T_s} + K_i \sum_{i=0}^{k}
+          T_s
+          e(t_i)\\ ={}&
+          K_p e(t_k) + {\color{blue}{K'_d}} (e(t_k) - e(t_{k-1})) + {\color{red}{K'_i}} \sum_{i=0}^{k}e(t_i)
+          \end{align}$
+        </div>
+        <div style="margin-top: 0.5em; font-size:1.0em; text-align: left; color: black">
+          where <span style="color:var(--my_red)">$K'_d = \frac{K_d}{T_s}$</span> and
+          <span style="color:var(--my_blue)">$K'_i = K_i T_s$</span>.
+        </div>
+      </section>
+
+
+      <section>
+        <h1>PID implementation</h1>
+        <div style="margin-top: 2.2em">
+          <pre style="width:80%; padding: 15px; height: 100%; font-size:0.6em"><code data-trim data-noescape>
+            <span class="code_comment">/* PID implementation (pseudocode) */</span>          
+            previous_error = 0.0, sum_error = 0.0;
+  
+            <span class="code_comment">/* Initialise variables */</span>                    
+            previous_error = setpoint - measured_value;
+            
+            <span class="code_comment">/* Call the following function at every sampling time */</span>
+            <span class="keyword">function</span> compute_control_action(measured_value, setpoint) {
+              ctrl_error = setpoint - measured_value;
+              delta_error = ctrl_error - previous_error;
+              control = <span class="code_static">P_GAIN_DISCRETE</span> * ctrl_error 
+                      + <span class="code_static">I_GAIN_DISCRETE</span> * sum_error 
+                      + <span class="code_static">D_GAIN_DISCRETE</span> * delta_error;
+              sum_error += ctrl_error;
+              previous_error = ctrl_error;
+              <span class="keyword">return</span> control;
+            }
+              </code></pre>
+        </div>
+      </section>
+
+
+
+
+      <section>
+        <div style="margin-top: 10%; text-align: center">
+          <img src="../img/quizz.png" alt="Quizz Time" />
+        </div>
+      </section>
+
+      <!-- Bottom bar and (floating) logo -->
+      <!--     <div id="bar"></div>
+    <div id="logo-container"></div> -->
+
+      <!-- Reveal.js and Template Specific Options -->
+      <script src="../lib/js/reveal/lib/js/head.min.js"></script>
+      <script src="../lib/js/reveal/js/reveal.js"></script>
+      <script>
+        Reveal.initialize({
+          history: true,
+          transition: 'slide', // none/fade/slide/convex/concave/zoom
+          transitionSpeed: 'fast', // default/fast/slow
+          //backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+          controls: true,
+          center: false,
+          touch: true,
+          slideNumber: false,
+          maxScale: 10.0,
+
+          math: {
+            mathjax: '../lib/js/mathjax/MathJax.js',
+            config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+          },
+
+          dependencies: [
+            { src: '../lib/js/reveal/lib/js/classList.js' },
+            { src: '../lib/js/reveal/plugin/math/math.js', async: true },
+            // { src: 'plugin/math-katex/math-katex.js', async: true },
+            { src: '../lib/js/reveal/plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+            { src: '../lib/js/reveal/plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+            { src: '../lib/js/reveal/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+          ]
+        });
+      </script>
+
+      <!-- Formatting bottom bar and logo -->
+      <!-- <script>
+        function setBarProperties() {
+          // var snums = document.getElementsByClassName('slide-number')[0];
+          var logo = document.getElementById('logo-container');
+          var bar = document.getElementById('bar');
+
+          // adapt this value (0.045) if the bar height is not correct
+          var h = window.innerHeight * 0.045;
+          // check for minimal height (any smaller and we can't read the slide number)
+          if (h <= 20) {
+            bar.style.minHeight = "20px";
+            // snums.style.bottom = "2px";
+            logo.style.bottom = "15px";
+            // alert();
+          } else {
+            bar.style.minHeight = h + "px";
+            // snums.style.bottom = "1%";
+            logo.style.bottom = "3%";
+          }
+        }
+        window.onload = setBarProperties;
+        window.onresize = setBarProperties;
+        window.onkeydown = setBarProperties;
+      </script> -->
+
+      <!-- SVG injector script -->
+      <!-- <script src="../lib/js/svginjector/svg-injector.js"></script>
+      <script>
+        SVGInjector(document.querySelectorAll('img.inject-svg'));
+      </script> -->
+    </div>
+  </div>
+</body>
+
+</html>
