@@ -39,7 +39,7 @@
 /* Define a few names for easy access */
 :root {
   /*--meco-sans: 'Open-Sans';  standard sans serif font */
-  --meco-sans: 'Montserrat'; /* standard sans serif font */
+  --meco-sans: 'Open-Sans'; /* standard sans serif font */
   --meco-serif: 'Janson'; /* standard serif font */
   --meco-headings: 'Montserrat'; /* standard headings font */
   --meco-mono: 'Anonymous-Pro'; /* standard monospace font */
@@ -119,6 +119,14 @@ body {
   background-color: none;
 }
 
+.reveal .sub-header-separator {
+  margin-top: 1em;
+}
+.reveal .block-equation {
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+  text-align: center;
+}
 /* Reset image style */
 .reveal img {
   max-width: 100%;
@@ -126,8 +134,18 @@ body {
   padding: 0px;
 }
 
+/* flips and image (works for GIFs) */
+.reveal #flipped_roboto, .reveal #flipped_phd{
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH; 
+  -ms-filter: "FlipH"; /* IE8-9 support */
+}
+
 .reveal .bold {
-  font-weight: bold;
+  font-style: bold;
 }
 
 .reveal .italix {
@@ -141,10 +159,10 @@ body {
 	bottom: 0px;
   width: 100%;
   position: fixed;
-  font-size: 0.4em;
+  font-size: 0.45em;
+  padding-left: 0px;
   color: var(--my_gray);
 }
-
 
 /* ADDITIONAL STYLES <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
 

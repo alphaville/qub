@@ -1,1 +1,13 @@
 *~
+*.aux
+*.log
+*.gz
+*.backup
+*.toc
+*.out
+ppt/*.odp
+*.sqp
+*.odp#
+pid-homework.pdf
+pid-quiz.pdf
+

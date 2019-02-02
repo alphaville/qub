@@ -39,10 +39,11 @@
 
   <meta name="viewport" content="width=device-width">
 
-  <link rel="stylesheet" href="lib/js/reveal/css/reveal.css">
+  <link rel="stylesheet" href="lib/js/reveal/css/reveal.css"> <!-- we must first load reveal.js -->
+  <link rel="stylesheet" href="lib/css/presentation.css">
   <link rel="stylesheet" href="lib/js/reveal/lib/css/zenburn.css">
   <link rel="stylesheet" href="lib/css/include_fonts.css">
-  <link rel="stylesheet" href="lib/css/presentation.css">
+
 
   <!-- Printing and PDF exports -->
   <!-- usage: add "?print-pdf" to URL, e.g. ".../index.html?print-pdf" -->
@@ -62,7 +63,7 @@
 
       <section>
         <div style="margin-top: 2em"> </div>
-        <h1>Optimisation, Control and Learning Ensembles for Safe Cobots</h1>
+        <h1>OCL Ensembles for Safe Cobots</h1>
         <div style="margin-top: 2em;text-align:center;">
           <a href="https://alphaville.github.io" target="blank" style="color:black; text-decoration: none">Pantelis
             Sopasakis</a>
@@ -76,17 +77,39 @@
       -->
       <section data-background=var(--my_blue) data-state="plain-slide">
         <div style="margin-top: 10%; font-size:2.6em; text-align: center; color: white">
-          Challenges
+          Challenges &amp; Objectives
+        </div>
+        <div style="margin-top: 10%; font-size:1em; text-align: center; color: white">
+          Safe Intelligent Cobots
         </div>
       </section>
+
 
       <section>
         <h1>
           Challenges
         </h1>
-        <div style="text-align: center; margin-top: 3em">
-          <img src="img/challenges.jpg" alt="challenges" style="width: 90%" />
+        <div style="text-align: center; margin-top: 5em">
+          <img src="img/challenges.png" alt="challenges" style="width: 100%" />
         </div>
+      </section>
+
+      <section>
+        <h1>
+          Objectives
+        </h1>
+        <table style="width:100%; margin-top: 1.0em">
+          <tr>
+            <td style="vertical-align: middle">
+              <img src="img/roboto.gif" alt="mr_roboto" style="width: 120pt" />
+            </td>
+            <td style="vertical-align: middle">
+              <img src="img/objectives.png" width="750" />
+            </td>
+          </tr>
+        </table>
+
+
       </section>
 
       <!-- 
@@ -97,12 +120,108 @@
         <div style="margin-top: 10%; font-size:2.6em; text-align: center; color: white">
           Learning-based Control
         </div>
+        <div style="margin-top: 10%; font-size:1em; text-align: center; color: white">
+          Risk-averse Model Predictive Control
+        </div>
       </section>
 
-      <section data-background-video="mov/STOCHASTIC/pmf.mp4" data-background-video-loop="loop" data-background-size="contain"
-        data-background-video-muted="true">
+      <section>
+        <h2>Model Predictive Control</h2>
+        <div style="text-align: center; margin-top: 1em">
+          <video data-autoplay width="930" autoplay loop>
+            <source src="mov/MPC/mpc.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
         <div class="footnote">
-          P. Sopasakis, <span class="italix">et al.</span>, "Safe learning-based risk-averse MPC," IEEE CDC, 2019.
+          J.B. Rawlings, D.Q. Mayne &amp; M. Diehl,
+          <span class="italix">Model Predictive Control: Theory, Computation, and Design</span>,
+          Nob Hill Pub., 2009.
+        </div>
+      </section>
+
+      <section>
+        <h2>Certainty-Equivalent Control</h2>
+        <div class="fragment replace" data-fragment-index="1">
+          <img src="img/ce-ctrl-1.png" alt="textbook" style="width: 100%" />
+        </div>
+        <div class="fragment replace" data-fragment-index="1">
+          <img src="img/ce-ctrl-2.png" alt="textbook" style="width: 100%" />
+        </div>
+      </section>
+
+      <section>
+        <h2>Worst-case Control</h2>
+        <div class="fragment replace" data-fragment-index="1">
+          <img src="img/wc-ctrl-1.png" alt="worst case control" style="width: 100%" />
+        </div>
+        <div class="fragment replace" data-fragment-index="1">
+          <img src="img/wc-ctrl-1.png" alt="worst case control" style="width: 100%; opacity: 0.1;" />
+          <div id="wc-mpc" style="position: absolute; top: 30%">
+            <div>Worst-case MPC:</div>
+            <div id="wp-mpc-formulation" class="block-equation" style="margin-left: 3em">
+              $$
+              \operatorname*{Minimise}_{u_0,\ldots,u_{N-1}} \operatorname*{max}_{w_0,\ldots, w_{N-1}} \left[
+              \ell_N(x_N) +
+              \sum_{t=0}^{N-1} \ell_t(x_t,
+              u_t, w_t)\right]
+              $$
+            </div> <!-- END of #wp-mpc-formulation -->
+            <div>subject to the system dynamics and constraints.</div>
+          </div> <!-- END of #wc-mpc -->
+        </div>
+        <div class="fragment replace" data-fragment-index="2">
+          <img src="img/wc-ctrl-2.png" alt="textbook" style="width: 100%" />
+        </div>
+      </section>
+
+      <section>
+        <h2>Stochastic Control</h2>
+        <div class="fragment replace" data-fragment-index="1">
+          <img src="img/stoch-ctrl-1.png" alt="textbook" style="width: 100%" />
+        </div>
+        <div class="fragment replace" data-fragment-index="1">
+          <img src="img/stoch-ctrl-1.png" alt="textbook" style="width: 100%; opacity: 0.1;" />
+          <div id="stoch-mpc" style="position: absolute; top: 20%">
+            <div>Stochastic MPC:</div>
+            <div id="stoch-mpc-formulation" class="block-equation" style="margin-left: 3em">
+              $$
+              \operatorname*{Minimise}_{u_0,\ldots,u_{N-1}} \mathbb{E}_{w_0,\ldots, w_{N-1}} \left[
+              \ell_N(x_N) +
+              \sum_{t=0}^{N-1} \ell_t(x_t,
+              u_t, w_t)\right]
+              $$
+            </div> <!-- END of #wp-mpc-formulation -->
+            <div>subject to the system dynamics and constraints.</div>
+          </div> <!-- END of #wc-mpc -->
+        </div>
+        <div class="fragment replace" data-fragment-index="1">
+          <img src="img/stoch-ctrl-2.png" alt="textbook" style="width: 100%" />
+        </div>
+      </section>
+
+      <section>
+        <h2>Uncertainty in uncertainty</h2>
+        <div style="text-align: center; margin-top: 0.2em">
+          <video data-autoplay width="930" autoplay loop>
+            <source src="mov/STOCHASTIC/pmf.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="footnote">
+          P. Sopasakis, M. Schuurmans and P. Patrinos, "Safe learning-based risk-averse MPC," IEEE Conf. Decision and
+          Control, Nice, 2019.
+        </div>
+      </section>
+
+      <section>
+        <h2>Risk-averse MPC</h2>
+        <div class="sub-header-separator"></div>
+
+        <div class="footnote">
+          P. Sopasakis, D. Herceg, A. Bemporad and P. Patrinos,
+          "Risk-averse model predictive control,"
+          Automatica 100, pp. 281-288, Feb. 2019.
         </div>
       </section>
 
@@ -116,14 +235,22 @@
         </div>
       </section>
 
+      <section>
+        <h2>Fast Nonconvex Optimisation</h2>
+      </section>
+
+
       <section data-background-video="mov/MAV/out.mp4" data-background-video-loop="loop" data-background-size="cover"
         data-background-video-muted="true">
-        <div class="footnote">
+        <div class="footnote" style="color: rgba(255, 255, 255, 0.63)">
           E. Small, P. Sopasakis, <span class="italix">et al.</span>, "Aerial navigation in obstructed environments
-          with embedded nonlinear model predictive control," IEEE Eur. Control Conf. 2019.
+          with embedded nonlinear model predictive control," IEEE Eur. Control Conf., 2019.
         </div>
       </section>
 
+      <section>
+        <h2>Large-scale GPU-accelerated optimisation</h2>
+      </section>
 
 
       <!-- 
@@ -134,6 +261,10 @@
         <div style="margin-top: 10%; font-size:2.6em; text-align: center; color: white">
           My Research Vision
         </div>
+      </section>
+
+      <section>
+        <h2>Safe Intelligent Cobotics</h2>
       </section>
 
       <section>
@@ -156,18 +287,20 @@
           <tr>
             <td style="vertical-align: middle">
               Funding agencies...
-              <ul style="list-style-type: circle; margin-top: 0.25em">
-                <li>EPSRC NIA</li>
-                <li>H2020</li>
-                <li>Leverhulme</li>
-                <li>Newton</li>
-                <li>Royal Engineering</li>
-              </ul>
+              <br />
+              <br />
+              <img src="img/epsrc.png" alt="EPSRC" style="width: 140pt" />
+              <img src="img/h2020.jpeg" alt="EPSRC" style="width: 140pt" />
+              <br />
+              <br />
+              <img src="img/leverhulme.jpeg" alt="EPSRC" style="width: 140pt" />
+              <img src="img/rae.jpeg" alt="EPSRC" style="width: 140pt" />
+
             </td>
             <td style="vertical-align: middle; text-align: center">
               <div id="two-phd-students">
                 <img src="img/study.jpeg" alt="PhD student" style="width: 100pt" />
-                <img src="img/study.jpeg" alt="PhD student" style="width: 100pt" />
+                <img id="flipped_phd" src="img/study.jpeg" alt="PhD student" style="width: 100pt" />
               </div>
               <div>
                 Two PhD students
@@ -183,13 +316,22 @@
       </section>
 
 
-      <section data-background-image="img/collaborators.png" data-background-size="cover" data-background-opacity=1>
+      <section data-background-image="img/collaborators.png" data-background-size="cover" data-background-opacity=0.4>
         <h2>Collaborations</h2>
-        <div class="footnote">
-          Footnote
-        </div>
+
       </section>
 
+
+      <!-- 
+
+        THANK YOU
+      -->
+      <section>
+        <h2>Thank you for your attention</h2>
+        <div style="margin-top: 0em; right:0; position: absolute">
+          <img id="flipped_roboto" src="img/roboto.gif" alt="mr_roboto flipped" style="width: 120pt" />
+        </div>
+      </section>
 
       <!-- END OF PRESENTATION -->
 
@@ -199,7 +341,7 @@
       <script>
         Reveal.initialize({
           history: true,
-          transition: 'fade', // none/fade/slide/convex/concave/zoom
+          transition: 'none', // none/fade/slide/convex/concave/zoom
           transitionSpeed: 'fast', // default/fast/slow
           controls: true,
           center: false,
