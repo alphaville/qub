@@ -169,13 +169,13 @@
             <div>Worst-case MPC:</div>
             <div id="wp-mpc-formulation" class="block-equation" style="margin-left: 3em">
               $$
-              \operatorname*{Minimise}_{u_0,\ldots,u_{N-1}} \operatorname*{max}_{w_0,\ldots, w_{N-1}} \left[
+              \operatorname*{Minimise}_{u_0,\ldots,u_{N-1}} \operatorname*{max}_{(w_0,\ldots, w_{N-1})\in W} \left[
               \ell_N(x_N) +
               \sum_{t=0}^{N-1} \ell_t(x_t,
               u_t, w_t)\right]
               $$
             </div> <!-- END of #wp-mpc-formulation -->
-            <div>subject to the system dynamics and constraints.</div>
+            <div>subject to system dynamics, $x_{t+1}=f(x_t, u_t, w_t)$, and constraints.</div>
           </div> <!-- END of #wc-mpc -->
         </div>
         <div class="fragment replace" data-fragment-index="3">
@@ -205,6 +205,9 @@
         </div>
         <div class="fragment replace" data-fragment-index="3">
           <img src="../img/stoch-ctrl-2.png" alt="textbook" style="width: 100%" />
+        </div>
+        <div class="fragment replace centered" data-fragment-index="4" style="margin-top: 2em">
+          <img src="../img/counterexample.jpg" alt="counterexample" width="80%" />
         </div>
       </section>
 
@@ -236,30 +239,6 @@
             <img src="../img/risk-case.jpg" alt="risk case" width="460" />
             <img src="../img/wc-case.jpg" alt="worst case" width="220" />
           </div>
-          <div class="fragment replace" data-fragment-index="3">
-            <div style="text-align: center">
-              <img src="../img/stochastic-case.jpg" alt="stochastic case" width="220" style="opacity: 0.1" />
-              <img src="../img/risk-case.jpg" alt="risk case" width="460" style="opacity: 0.1" />
-              <img src="../img/wc-case.jpg" alt="worst case" width="220" style="opacity: 0.1" />
-            </div>
-            <div style="position: absolute; top: 35%">
-              A <span class="bold">risk measure</span> maps a random cost, $Z$, to a value, $\rho(Z)$,
-              with
-              <div class="block-equation">
-                $$
-                \mathbb{E}[Z] {}\leq{} \rho(Z) {}\leq{} \max[Z]
-                $$
-              </div>
-              Well-behaving (<span class="bold">coherent</span>) risk measures:
-              <div class="block-equation">
-                $$
-                \rho(Z) {}={} \max_{\mu\in\mathcal{A}}\mathbb{E}_\mu[Z]
-                $$
-              </div>
-              where $\mathcal{A}$ is a closed, convex set called the <span class="bold">ambiguity set</span>
-              or $\rho$.
-            </div>
-          </div>
         </div>
 
         <div class="footnote">
@@ -267,6 +246,78 @@
           "Risk-averse model predictive control,"
           Automatica 100, pp. 281-288, Feb. 2019.
         </div>
+      </section>
+
+      <section>
+        <section>
+          <h2>Measuring Risk</h2>
+          <div style="text-align: center">
+            <img src="../img/stochastic-case.jpg" alt="stochastic case" width="220" style="opacity: 0.1" />
+            <img src="../img/risk-case.jpg" alt="risk case" width="460" style="opacity: 0.1" />
+            <img src="../img/wc-case.jpg" alt="worst case" width="220" style="opacity: 0.1" />
+          </div>
+          <div style="position: absolute; top: 35%">
+            A <span class="bold">risk measure</span> maps a random cost, $Z$, to a value, $\rho(Z)$,
+            with
+            <div class="block-equation">
+              $$
+              \mathbb{E}[Z] {}\leq{} \rho(Z) {}\leq{} \max[Z]
+              $$
+            </div>
+            Well-behaving (<span class="bold">coherent</span>) risk measures:
+            <div class="block-equation">
+              $$
+              \rho(Z) {}={} \max_{\mu\in\mathcal{A}}\mathbb{E}_\mu[Z]
+              $$
+            </div>
+            where $\mathcal{A}$ (closed and convex) is called the <span class="bold">ambiguity set</span>
+            of $\rho$.
+          </div>
+        </section>
+        <section>
+          <h2>Trivial risk measures</h2>
+          <div class="sub-header-separator"></div>
+          <div>
+            Let $\Omega$ be a finite sample space, $\Omega = \{\omega_1,\ldots, \omega_K\}$,
+            which is equipped with a probability vector $p \in \mathbb{R}^K$ (suppose $p_i>0$).
+          </div>
+          <div class="sub-header-separator"></div>
+          <div>
+            The <span class="bold">expectation</span> and the <span class="bold">maximum</span> are
+            coherent risk measures.
+          </div>
+          <div class="sub-header-separator"></div>
+          <div>
+            The ambiguity set of the exectation is the singleton $\{p\}$ and the
+            ambiguity set of the maximum is the probability simplex,
+          </div>
+          <div class="block-equation">
+            $$D_K = \{\mu \in \mathbb{R}^K {}:{} \sum_i \mu_i = 1, 0 \leq \mu_i\}$$
+          </div>
+        </section>
+        <section>
+          <h2>Average value-at-risk</h2>
+          <div class="sub-header-separator"></div>
+          <div>
+            A popular risk measure is the <span class="bold">average value-at-risk</span> with parameter
+            $\alpha\in(0,1]$
+            given by
+            <div class="block-equation">
+              $$
+              \mathrm{AV@R}_{\alpha}[Z] = \inf_{t\in\mathbb{R}} t + \tfrac{1}{\alpha}\mathbb{E}\max\{0, Z-t\}
+              $$
+            </div>
+            <div>
+              The ambiguity set of $\mathrm{AV@R}_{\alpha}$ is the set
+            </div>
+            <div class="block-equation">
+              $$
+              \mathcal{A}_\alpha = \{\mu \in D_K {}:{} \mu_i \leq
+              \tfrac{1}{\alpha}p_i \}
+              $$
+            </div>
+          </div>
+        </section>
       </section>
 
       <section>
@@ -370,14 +421,74 @@
           Numerical Optimisation
         </div>
         <div style="margin-top: 3em; font-size:1em; text-align: center; color: white">
-          Nonconvex
+          Collision Avoidance
         </div>
       </section>
 
+
       <section>
-        <h2>Fast Nonconvex Optimisation</h2>
+        <h2>Collision avoidance</h2>
+        <div style="margin-top: 10%"></div>
+        <div id="oa-images" class="centered">
+          <div class="fragment replace" data-fragment-index="1">
+            <img src="../img/oa1.png" width=30% />
+            <img src="../img/oa2.png" width=30% />
+            <img src="../img/oa3.png" width=30% />
+          </div>
+          <div class="fragment replace" data-fragment-index="1">
+            <div style="position: absolute; text-align: left; top: 40%">The dynamics is always <span class="bold">nonlinear</span></div>
+            <div style="position: absolute; text-align: left; top: 50%">
+              The constraints are always <span class="bold">nonconvex</span>
+            </div>
+            <img src="../img/oa1.png" width=30% style="opacity: 0.1" />
+            <img src="../img/oa2.png" width=30% style="opacity: 0.1" />
+            <img src="../img/oa3.png" width=30% style="opacity: 0.1" />
+          </div>
+        </div>
+
       </section>
 
+      <section data-background-image="../img/mc.jpeg" data-background-size="cover" data-background-opacity="var(--bck_opacity_high)">
+        <h2>Embedded Nonconvex Optimisation</h2>
+        <div style="margin-top: 3em"></div>
+        <!-- <div>Facts...</div> -->
+        <div style="margin-top: 1.2em"></div>
+        <div><span class="bold">SQP</span> and <span class="bold">IP</span> involve complex steps (QP solution, linear
+          systems)</div>
+        <div style="margin-top: 1.2em"></div>
+        <div>They are not suitable for embedded applications</div>
+        <div style="margin-top: 1.2em"></div>
+        <div>Projected gradient (PG) is simple, but slow!</div>
+      </section>
+
+      <section>
+        <h2>Embedded Nonconvex Optimisation</h2>
+        <div style="margin-top: 2.3em"></div>
+        <div id="first-idea-container">
+          <div id="first-idea-text">
+            <span class="bold">IDEA #1.</span> An averaged algorithm that takes convex combinations of
+            <span style="color: green">safe</span> (PG)
+            and <span style="color: red">fast</span> (Quasi-Newtonian) steps!
+          </div>
+          <div class="block-equation">
+            $u^{\nu+1} = u^{\nu} + \tau_\nu$
+            <span style="color: red">$d_{\mathrm{LBFGS}}^{\nu}$</span>
+            ${}+{} (1-\tau_\nu)($<span style="color: green">$u^\nu - T_\gamma(u^\nu)$</span> $)$
+          </div>
+        </div>
+        <div style="margin-top: 3em"></div>
+        <div id="second-idea-container" class="fragment" data-fragment-index="1">
+          <div class="sub-header-separator"></div>
+          <div id="second-idea-text">
+            <span class="bold">IDEA #2.</span> A <span class="bold">globalisation</span> of the above
+            algorithm using a real-valued continuous merit function - the forward-backward envelope.
+          </div>
+        </div>
+        <div class="footnote">
+          A. Sathya, P. Sopasakis, <span class="italix">et al.</span>, "Embedded nonlinear model
+          predictive control for obstacle avoidance using PANOC," IEEE ECC, 2018.
+        </div>
+      </section>
 
       <section data-background-video="../mov/MAV/mav-nmpc.mp4" data-background-video-loop="loop" data-background-size="cover"
         data-background-video-muted="true">
@@ -393,12 +504,6 @@
         NUM. OPTIMISATION
         PART-II: LARGE-SCALE
       -->
-      <section data-background=var(--my_blue) data-state="plain-slide">
-        <div style="margin-top: 10%; font-size:2.6em; text-align: center; color: white">
-          Numerical Optimisation
-        </div>
-      </section>
-
       <section>
         <h2>Large-scale GPU-accelerated optimisation</h2>
       </section>

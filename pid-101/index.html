@@ -90,7 +90,9 @@
         </div>
       </section>
 
-      <section data-background-image="../img/shower.jpg" data-background-size="contain">
+      <section>
+        <h2>Taking a shower</h2>
+        <img src="../img/shower.jpg" />
       </section>
 
       <section data-background-image="../img/shower.jpg" data-background-size="contain" data-background-opacity="var(--bck_opacity_high)">
@@ -112,7 +114,9 @@
       </section>
 
 
-      <section data-background-image="../img/car.jpg" data-background-size="contain">
+      <section>
+        <h2>Cruise control</h2>
+        <img src="../img/car.jpg" />
       </section>
 
       <section data-background-image="../img/car.jpg" data-background-size="contain" data-background-opacity="var(--bck_opacity_high)">
@@ -134,12 +138,30 @@
       </section>
 
       <section>
-        <section data-background-image="../img/track.jpg" data-background-size="contain">
+        <section>
+          <h2>Lane keeping</h2>
+          <img src="../img/track.jpg" />
         </section>
-        <section data-background-image="../img/airplane.jpg" data-background-size="contain">
+        <section>
+          <h2>Roll control</h2>
+          <img src="../img/airplane.jpg" />
         </section>
       </section>
 
+      <section data-background-image="../img/track.jpg" data-background-size="contain" data-background-opacity="var(--bck_opacity_high)">
+        <h2>Lane Keeping Control</h2>
+        <div style="margin-top: 2em; font-size:1.0em; text-align: left; color: black">
+          <ul>
+            <li><span class="bold">System:</span> car</li>
+            <li><span class="bold">Controlled variable (output):</span> distance from centre of lane, $y(t)$</li>
+            <li><span class="bold">Sensor:</span> camera</li>
+            <li><span class="bold">Set point</span>: center of lane, $y^{\mathrm{sp}} = 0$</li>
+            <li><span class="bold">Error</span>: $e(t) = -y(t)$</li>
+            <li><span class="bold">Control action</span>: steering angle, $u(t)$</li>
+          </ul>
+
+        </div>
+      </section>
 
       <!-- 
         
@@ -166,11 +188,10 @@
           Steering is <span style="color:var(--my_red)">proportional</span> to <span style="color:var(--my_red)">error</span>
         </div>
 
-        <div class="fragment fade-up" data-fragment-index="2" style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0;">
-          <div style="margin-top: 5%; font-size:1.8em; color:black; text-align:center;">
-            $$u(t) = K_p e(t)$$
-          </div>
+        <div style="margin-top: 5%; font-size:1.8em; color:black; text-align:center;">
+          $$u(t) = K_p \cdot e(t)$$
         </div>
+
       </section>
 
       <section data-background-video="../mov/P/P_K0.01.mp4" data-background-video-loop="loop" data-background-size="contain"
@@ -349,10 +370,10 @@
         <div style="margin-top: 10%; font-size:4.3em; text-align: center; color: rgb(255, 0, 55)">
           Warning!
         </div>
-        <div style="margin-top: 1.2em; font-size:1.1em; text-align: center; color: black">
+        <div style="margin-top: 1.2em; font-size:1.1em; text-align: center; color: yellow">
           All models are wrong*
         </div>
-        <div style="margin-top: 5em; font-size:0.7em; text-align: center; color: black">
+        <div style="margin-top: 5em; font-size:0.7em; text-align: center; color: yellowgreen">
           * George Box, 1976
         </div>
       </section>
@@ -425,42 +446,50 @@
         </div>
       </section>
 
-      <section data-background-image="../img/discrete1.jpg" data-background-size="contain">
+      <section>
+        <h2>Digital Control Systems</h2>
+        <img src="../img/discrete_concept.gif" />
       </section>
 
-      <section data-background-image="../img/discrete2.jpg" data-background-size="contain">
-        <div style="font-size:1.0em; text-align: left; color: blue; margin-top: 50%">
-          $$\frac{\mathrm{d}e(t_k)}{\mathrm{d}t} \approx \frac{e(t_k) - e(t_{k-1})}{T_s}$$
-        </div>
-        <div style="font-size:0.7em; text-align: center; color: black; margin-top: 1em">
-          for $k=1,2,\ldots$
+      <section>
+        <h2>Digital Control Systems</h2>
+        <div style="position: absolute; top: 4em">
+          <img src="../img/discrete1.jpg" />
         </div>
       </section>
 
       <section>
-        <section data-background-image="../img/discrete3.jpg" data-background-size="contain">
-          <div style="font-size:1.0em; text-align: left; color: magenta; margin-top: 50%">
-            $$\int_{t_{k-1}}^{t_k}e(\tau)\mathrm{d}\tau \approx T_s e(t_k)$$
-          </div>
-        </section>
-        <section data-background-image="../img/discrete3b.jpg" data-background-size="contain">
-          <div style="font-size:1.0em; text-align: center; color: magenta; margin-top: 50%">
-            $$\int_{t_{k-1}}^{t_k}e(\tau)\mathrm{d}\tau \approx \tfrac{T_s}{2} (e(t_k) - e(t_{k-1})$$
-          </div>
-          <div style="font-size:0.5em; text-align: center; color: black; margin-top: 1em">
-            (See Homework...)
-          </div>
-        </section>
-      </section>
-
-      <section data-background-image="../img/discrete5.jpg" data-background-size="contain">
-        <div style="font-size:1.0em; text-align: left; color: black; margin-top: 50%">
-          $$I(t_{k}) {}\approx{} \sum_{i=1}^{k}T_s e(t_k)$$
+        <h2>Digital Approximation of $\dot{e}(t)$</h2>
+        <div style="position: absolute; top: 4em">
+          <img src="../img/discrete2.jpg" />
         </div>
       </section>
 
+      <section>
+        <section>
+          <h2>Digital Approximation of $I(t)$</h2>
+          <div style="position: absolute; top: 4em">
+            <img src="../img/discrete3.jpg" />
+          </div>
+        </section>
+        <section>
+          <h2>Trapezoidal rule</h2>
+          <div style="position: absolute; top: 4em">
+            <img src="../img/discrete3b.jpg" />
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <h2>Digital Approximation of $I(t)$</h2>
+        <div style="position: absolute; top: 4em">
+          <img src="../img/discrete4.jpg" />
+        </div>
+      </section>
+
+
       <section data-transition="none">
-        <h1>Discrete-time PID</h1>
+        <h2>Discrete-time PID</h2>
         <div style="margin-top: 10%; font-size:1.0em; text-align: left; color: black">
           Discrete-time PID controller
         </div>
@@ -480,7 +509,7 @@
       </section>
 
       <section data-transition="none">
-        <h1>Discrete-time PID</h1>
+        <h2>Discrete-time PID</h2>
         <div style="margin-top: 10%; font-size:1.0em; text-align: left; color: black">
           Discrete-time PID controller
         </div>
@@ -499,7 +528,7 @@
 
 
       <section>
-        <h1>PID implementation</h1>
+        <h2>PID implementation</h2>
         <div style="margin-top: 2.2em">
           <pre style="width:80%; padding: 15px; height: 100%; font-size:0.6em"><code data-trim data-noescape>
             <span class="code_comment">/* PID implementation (pseudocode) */</span>          
@@ -525,11 +554,21 @@
 
 
 
+      <section>
+        <h2>Overview</h2>
+
+      </section>
+
 
       <section>
         <div style="margin-top: 10%; text-align: center">
           <img src="../img/quizz.png" alt="Quizz Time" />
+          <div>
+            Visit
+            <a href="" target="_blank" style="text-decoration: none; color: rgb(43, 43, 228)">http://kahoot.it</a>
+          </div>
         </div>
+
       </section>
 
       <!-- Bottom bar and (floating) logo -->
@@ -542,7 +581,7 @@
       <script>
         Reveal.initialize({
           history: true,
-          transition: 'slide', // none/fade/slide/convex/concave/zoom
+          transition: 'none', // none/fade/slide/convex/concave/zoom
           transitionSpeed: 'fast', // default/fast/slow
           //backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
           controls: true,
