@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt,reqno]{amsart}
+\documentclass[a4paper,10pt,reqno]{amsart}
 
 % \usepackage[utf8x]{inputenc}
 % \usepackage[foot]{amsaddr}
@@ -153,8 +153,8 @@
 % \address[P. Sopasakis]{KU Leuven, Department of Electrical Engineering (ESAT), STADIUS Center for Dynamical Systems, Signal Processing and Data Analytics \& Optimization in Engineering (OPTEC), Kasteelpark Arenberg 10, 3001 Leuven, Belgium. Email addresses: \href{mailto:pantelis.sopasakis@kuleuven.be}{pantelis.sopasakis@kuleuven.be} and 
 % \href{mailto:panos.patrinos@esat.kuleuven.be}{panos.patrinos@esat.kuleuven.be}.}
 \thanks{Homework for the course ``The PID controller and its software implementation.'' 
-        The slides are available at \url{https://alphaville.github.io/pid-101/}. 
-        The associated MATLAB source code can be found at \url{https://github.com/alphaville/pid-101/matlab/}.
+        The slides are available at \url{https://alphaville.github.io/qub/pid-101/}. 
+        The associated MATLAB source code can be found at \url{https://alphaville.github.io/qub/matlab/}.
         For questions you may reach me by email at 
         \href{mailto:p.sopasakis@gmail.com}{\texttt{p.sopasakis@gmail.com}} 
        or in person in Office No. ... during office hours. Last updated:~\today.}
@@ -163,9 +163,8 @@
 
 \maketitle
 \noindent \textbf{Guidelines:} 
-Solve the following exercises and submit your answers by email at 
-\href{mailto:p.sopasakis@gmail.com}{\texttt{p.sopasakis
-@gmail.com}}.
+Solve the following exercises and send your answers by email to
+\href{mailto:p.sopasakis@gmail.com}{\texttt{p.sopasakis@gmail.com}}.
 Your answers should be submitted in a single PDF file along with a ZIP file with your source 
 code.
 
@@ -183,28 +182,35 @@ your source code (15\%). The relative importance of each question is indicated i
  In the lecture, we presented a \textit{discrete-time approximation} of the 
        PID controller using the following integral approximation
        \begin{equation}
-        \int_{t_{k-1}}^{t_k} e(\tau)\, {}\mathrm{d}\tau {}\approx{} T_s e(t_k)\tag{1}
+        \int_{t_{k-1}}^{t_k} e(\tau)\, {}\mathrm{d}\tau {}\approx{} T_s e(t_k)\tag{1a}
        \end{equation}       
-       which is known as the \textit{rectangle rule}.
+       which is known as the \textit{rectangle rule}. We also used the \textit{backward differences}
+       approximation for the derivative of the error, that is,
+       \[
+        \frac{\d e(t_k)}{\d t} \approx \frac{e(t_k) - e(t_{k-1})}{T_s}\tag{1b}\label{eq:1b}.
+       \]
+
       \begin{enumerate}
 	\item {} \label{it:discrete-pid-trapezoidal}
 	      {}[10\%]{} Give a discrete-time approximation of the PID controller using the 
-	      \textit{trapezoidal rule} or \textit{trapezoid rule}, that is, 
+	      \textit{backward differences} approximation for the derivative of the error (Equation \eqref{eq:1b})
+	      and the \textit{trapezoidal rule} --- or \textit{trapezoid rule} --- that is, 
 	      \[
 	      \int_{t_{k-1}}^{t_k} e(\tau)\, {}\mathrm{d}\tau 
 	      {}\approx{} 
-	      \frac{T_s}{2} \left(e(t_k) + e(t_{k-1})\right)\tag{2}
+	      \frac{T_s}{2} \left(e(t_k) + e(t_{k-1})\right),\tag{2}
 	      \]
+	      for the approximation of the integral of the error.
 	\item {}[10\%]{} Write some simple pseudocode for the discrete-time PID controller
 	      you derived in question No. \ref{it:discrete-pid-trapezoidal} using the 
 	      trapezoidal rule.
-	\item {}\label{it:pid-implementation} {}[15\%]{} Implement a discrete-time PID controller using the trapezoidal rule 
+	\item {}\label{it:pid-implementation} {}[15\%]{} Implement the above discrete-time PID controller 
 	      in MATLAB. You may build up on the source 
-	      code found at \href{https://alphaville.github.io/pid-101/matlab/}{https://alphaville.github.io/pid-101/matlab/}.
+	      code found at \href{https://alphaville.github.io/qub/matlab/}{https://alphaville.github.io/qub/matlab/}{.}
 	\item {}[15\%]{} Compare the discrete-time PID controller implementation you 
 	      produced in question No. \ref{it:pid-implementation}
-	      to the one found at \href{https://alphaville.github.io/pid-101/matlab/}%
-	      {https://alphaville.github.io/pid-101/matlab/}.
+	      to the one found at \href{https://alphaville.github.io/qub/matlab/}%
+	      {https://alphaville.github.io/qub/matlab/}{.}
 	      Try out different sampling times.	According to your observations, how does the sampling time
 	      affect the behaviour of the closed-loop system?
 	\item {}[20\%]{} Suppose that due to a technical glitch, there is a constant bias of $u_{\mathrm{bias}} = 5^\circ$
