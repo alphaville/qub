@@ -90,16 +90,16 @@
 
 
       <section>
-        <h1>
+        <h2>
           Challenges
-        </h1>
+        </h2>
         <div style="text-align: center; margin-top: 5em">
           <img src="../img/challenges.png" alt="challenges" width="900" />
         </div>
       </section>
 
       <section>
-        <h1>Objectives</h1>
+        <h2>Objectives</h2>
         <table style="width:100%; margin-top: 1.0em">
           <tr>
             <td style="vertical-align: middle">
@@ -114,7 +114,7 @@
 
 
       <section>
-        <h1>Vision</h1>
+        <h2>Vision</h2>
         <div class="centered" style="margin-top: 6%">
           <img src="../img/pyramid.png" width="800" />
         </div>
@@ -448,7 +448,7 @@
 
       </section>
 
-      <section data-background-image="../img/mc.jpeg" data-background-size="cover" data-background-opacity="var(--bck_opacity_high)">
+      <section data-background-image="../img/mc.jpeg" data-background-size="cover" data-background-opacity="var(--bck_opacity)">
         <h2>Embedded Nonconvex Optimisation</h2>
         <div style="margin-top: 3em"></div>
         <!-- <div>Facts...</div> -->
@@ -458,10 +458,14 @@
         <div style="margin-top: 1.2em"></div>
         <div>They are not suitable for embedded applications</div>
         <div style="margin-top: 1.2em"></div>
-        <div>Projected gradient (PG) is simple, but slow!</div>
+        <div>Projected gradient (PG) is simple,</div>
+        <div class="block-equation">
+          $$u^{\nu+1} = \Pi_{U}(u^\nu - \gamma \nabla f(u^\nu))$$
+        </div>
+        <div>but very slow!</div>
       </section>
 
-      <section>
+      <section data-background-image="../img/mc.jpeg" data-background-size="cover" data-background-opacity="var(--bck_opacity)">
         <h2>Embedded Nonconvex Optimisation</h2>
         <div style="margin-top: 2.3em"></div>
         <div id="first-idea-container">
@@ -473,7 +477,7 @@
           <div class="block-equation">
             $u^{\nu+1} = u^{\nu} + \tau_\nu$
             <span style="color: red">$d_{\mathrm{LBFGS}}^{\nu}$</span>
-            ${}+{} (1-\tau_\nu)($<span style="color: green">$u^\nu - T_\gamma(u^\nu)$</span> $)$
+            ${}+{} (1-\tau_\nu)[$<span style="color: green">$u^\nu - T_\gamma(u^\nu)$</span><span>$]$</span>
           </div>
         </div>
         <div style="margin-top: 3em"></div>
@@ -485,8 +489,37 @@
           </div>
         </div>
         <div class="footnote">
-          A. Sathya, P. Sopasakis, <span class="italix">et al.</span>, "Embedded nonlinear model
-          predictive control for obstacle avoidance using PANOC," IEEE ECC, 2018.
+          L. Stella, A. Themelis, P. Sopasakis and P. Patrinos,
+          <span class="italix">et al.</span>, "A simple and efficient algorithm for nonlinear model predictive
+          control," IEEE CDC, 2017.
+        </div>
+      </section>
+
+
+      <section data-background-image="../img/mc.jpeg" data-background-size="cover" data-background-opacity="var(--bck_opacity)">
+        <h2>Forward-Backward Envelope</h2>
+        <div class="sub-header-separator"></div>
+        <div class="centered">
+          <img src="../img/fbe.png" width="630" />
+        </div>
+        <div class="footnote">
+          L. Stella, A. Themelis, P. Sopasakis and P. Patrinos,
+          <span class="italix">et al.</span>, "A simple and efficient algorithm for nonlinear model predictive
+          control," IEEE CDC, 2017.
+        </div>
+      </section>
+
+      <section data-background-image="../img/mc.jpeg" data-background-size="cover" data-background-opacity="var(--bck_opacity)">
+        <h2>Two Orders of Magnitude Faster!</h2>
+        <div class="sub-header-separator"></div>
+        <div class="centered">
+          <img src="../img/two-orders.png" width="630" />
+        </div>
+        <div class="footnote">
+          AS Sathya, P Sopasakis, <span class="italix">et al.</span>
+          <span class="italix">et al.</span>, "Embedded nonlinear model predictive control for obstacle avoidance using
+          PANOC,"
+          IEEE ECC, 2018.
         </div>
       </section>
 
@@ -504,8 +537,12 @@
         NUM. OPTIMISATION
         PART-II: LARGE-SCALE
       -->
-      <section>
+      <section data-background-image="../img/gpu.jpeg" data-background-size="cover" data-background-opacity="var(--bck_opacity)">
         <h2>Large-scale GPU-accelerated optimisation</h2>
+        <div class="sub-header-separator"></div>
+        <div class="centered">
+          <img src="../img/gpu_algorithms.png" width="930" />
+        </div>
       </section>
 
 
@@ -521,6 +558,10 @@
 
       <section>
         <h2>Safe Intelligent Cobotics</h2>
+        <div class="sub-header-separator"></div>
+        <div class="centered">
+          <img src="../img/vision.png" width="930" />
+        </div>
       </section>
 
       <section>

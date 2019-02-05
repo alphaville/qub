@@ -13,12 +13,12 @@
 \usepackage[utf8]{inputenc}
 \usepackage[foot]{amsaddr}
 \usepackage{amsmath,amsfonts,amssymb,amsthm,mathrsfs}
-\usepackage[margin=0.8in]{geometry}
+\usepackage[margin=0.95in]{geometry}
 \usepackage{color}
 \usepackage{units}
 \usepackage[dvipsnames]{xcolor}
 
- \input{toc-config.tex}
+
 
 \usepackage{mathtools}
 \usepackage{enumerate}
@@ -32,9 +32,9 @@
 
 \usepackage{listings}
 \usepackage{textcomp}
-\lstloadlanguages{Matlab}%
+\lstloadlanguages{Mat lab}%
 \lstset{
-    language=Matlab,                        % Use MATLAB
+    language=Mat lab,                        % Use MATLAB
     upquote=true,
     frame=single,                           % Single frame around code
     basicstyle=\small\ttfamily,             % Use small true type font
@@ -98,9 +98,9 @@
     pdfmenubar=true,        % show Acrobat’s menu?
     pdffitwindow=false,     % window fit to page when opened
     pdfstartview={FitH},    % fits the width of the page to the window
-    pdftitle={PID Homework},    % title
+    pdftitle={PID Lecture Goals},    % title
     pdfauthor={P. Sopasakis},     % author
-    pdfsubject={Homework},   % subject of the document
+    pdfsubject={PID Lecture Goals},   % subject of the document
     pdfcreator={P. Sopasakis},   % creator of the document
     pdfproducer={P. Sopasakis}, % producer of the document
     pdfnewwindow=true,      % links in new PDF window
@@ -145,16 +145,14 @@
 \renewcommand{\Re}{\mathbb{R}}
 
 %opening
-\title[PID Controller]{Introduction to the PID controller and its Software Implementation --- Homework}
+\title[PID: Lecture Goals]{Introduction to the PID controller and its Software Implementation --- Lecture Goals}
 
 
 \author[P. Sopasakis]{Pantelis Sopasakis}
 
 % \address[P. Sopasakis]{KU Leuven, Department of Electrical Engineering (ESAT), STADIUS Center for Dynamical Systems, Signal Processing and Data Analytics \& Optimization in Engineering (OPTEC), Kasteelpark Arenberg 10, 3001 Leuven, Belgium. Email addresses: \href{mailto:pantelis.sopasakis@kuleuven.be}{pantelis.sopasakis@kuleuven.be} and 
 % \href{mailto:panos.patrinos@esat.kuleuven.be}{panos.patrinos@esat.kuleuven.be}.}
-\thanks{Homework for the course ``The PID controller and its software implementation.'' 
-        The slides are available at \url{https://alphaville.github.io/pid-101/}. 
-        The associated MATLAB source code can be found at \url{https://github.com/alphaville/pid-101/matlab/}.
+\thanks{%
         For questions you may reach me by email at 
         \href{mailto:p.sopasakis@gmail.com}{\texttt{p.sopasakis@gmail.com}} 
        or in person in Office No. ... during office hours. Last updated:~\today.}
@@ -162,67 +160,43 @@
 
 
 \maketitle
-\noindent \textbf{Guidelines:} 
-Solve the following exercises and submit your answers by email at 
-\href{mailto:p.sopasakis@gmail.com}{\texttt{p.sopasakis
-@gmail.com}}.
-Your answers should be submitted in a single PDF file along with a ZIP file with your source 
-code.
 
-\vspace{1em}
-
-\noindent \textbf{Evaluation criteria:} Any correct answer is acceptable. You will be evaluated 
-for the correctness of your answers and source code (85\%) and the quality and readability of 
-your source code (15\%). The relative importance of each question is indicated in brackets.
-
-\vspace{1em}
-
-\noindent  \textbf{Deadline:} 20 February, 2019, by close of play (17:00)
-
-\vspace{1em}
- In the lecture, we presented a \textit{discrete-time approximation} of the 
-       PID controller using the following integral approximation
-       \begin{equation}
-        \int_{t_{k-1}}^{t_k} e(\tau)\, {}\mathrm{d}\tau {}\approx{} T_s e(t_k)\tag{1}
-       \end{equation}       
-       which is known as the \textit{rectangle rule}.
-      \begin{enumerate}
-	\item {} \label{it:discrete-pid-trapezoidal}
-	      {}[10\%]{} Give a discrete-time approximation of the PID controller using the 
-	      \textit{trapezoidal rule} or \textit{trapezoid rule}, that is, 
-	      \[
-	      \int_{t_{k-1}}^{t_k} e(\tau)\, {}\mathrm{d}\tau 
-	      {}\approx{} 
-	      \frac{T_s}{2} \left(e(t_k) + e(t_{k-1})\right)\tag{2}
-	      \]
-	\item {}[10\%]{} Write some simple pseudocode for the discrete-time PID controller
-	      you derived in question No. \ref{it:discrete-pid-trapezoidal} using the 
-	      trapezoidal rule.
-	\item {}\label{it:pid-implementation} {}[15\%]{} Implement a discrete-time PID controller using the trapezoidal rule 
-	      in MATLAB. You may build up on the source 
-	      code found at \href{https://alphaville.github.io/pid-101/matlab/}{https://alphaville.github.io/pid-101/matlab/}.
-	\item {}[15\%]{} Compare the discrete-time PID controller implementation you 
-	      produced in question No. \ref{it:pid-implementation}
-	      to the one found at \href{https://alphaville.github.io/pid-101/matlab/}%
-	      {https://alphaville.github.io/pid-101/matlab/}.
-	      Try out different sampling times.	According to your observations, how does the sampling time
-	      affect the behaviour of the closed-loop system?
-	\item {}[20\%]{} Suppose that due to a technical glitch, there is a constant bias of $u_{\mathrm{bias}} = 5^\circ$
-	      on the steering angle, that is, the controller commands a control action $u(t)$ to the 
-	      wheels, but the actual steering angle is $u(t) + u_{\mathrm{bias}}$.
-	      Perform simulations to demonstrate that a PD controller cannot eliminate the offset.
-	      According to your observations, what is the effect that $K_p$ and $K_d$ have on the offset? 
-        \item \label{it:tuning}
-	      {}[20\%]{} 
-              Experiment with the values of the proportional gain ($K_p$), the derivative gain ($K_d$)
-              and the integral gain ($K_i$) and determine values that lead to a nice, non-oscillatory behaviour with no 
-              offset (there is no \textit{single} correct answer). According to your observations, 
-              how do $K_p$, $K_d$ and $K_i$ affect the frequency and amplitude of the oscillations 
-              of the error?
-        \item {}[10\%]{} Simulate the controlled system starting from the initial position $p_x(0)=\unit[0]{m}$ and $p_y(0)=\unit[1]{m}$
-              and initial orientation $\theta(0) = \unit[0]{rad}$ towards the set-point $p_y^{\mathrm{sp}} = \unit[1.5]{m}$
-              using the PID controller from question No. \ref{it:tuning}.
-      \end{enumerate}
-
-
+At the end of the lecture, the students will have learnt:
+\begin{enumerate}
+ \item What control is
+ \begin{enumerate}
+  \item The main notions associated with a control loops (system, controlled 
+        variable, control action, sensor, set-point, error, disturbance)
+  \item Examples of control systems in our daily lives
+ \end{enumerate}
+ \item The P (proportional) controller
+ \begin{enumerate}
+  \item The definition of a P controller
+  \item The effect of the proportional gain ($K_p$) on the behaviour of the controlled system
+  \item Some possible limitations of a P controller (motivation of the PD controller)
+ \end{enumerate}
+ \item The PD (proportional-derivative) controller
+ \begin{enumerate}
+  \item The definition of a PD controller
+  \item The effect of the differential ($K_d$) and proportional ($K_p$) gains on the 
+        behaviour of the controlled system
+  \item The notions of under-damping, over-damping and critical damping
+ \end{enumerate}
+ \item The PID (proportional-integral-derivative) controller
+ \begin{enumerate}
+  \item The fact that all models are wrong
+  \item The definition of offset
+  \item What the integral of the error can tell us
+  \item The definition of a PID controller
+  \item The effect of the integral gain ($K_i$) on the behaviour of the controlled system
+ \end{enumerate}
+ \item Digital control systems
+ \begin{enumerate}
+  \item Why digital systems are special (the concept of sampling)
+  \item Simple digital approximations of the derivative and the integral
+  \item A discrete-time version of the PID controller
+  \item Software implementation of a PID controller
+ \end{enumerate}
+\end{enumerate}
+At the end of the lecture, we will do a short quiz on kahoot at \href{https://kahoot.it/}{https://kahoot.it/}.
 \end{document}

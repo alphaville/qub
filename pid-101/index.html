@@ -91,7 +91,7 @@
       </section>
 
       <section>
-        <h2>Taking a shower</h2>
+        <h2>Taking a Shower</h2>
         <img src="../img/shower.jpg" />
       </section>
 
@@ -115,7 +115,7 @@
 
 
       <section>
-        <h2>Cruise control</h2>
+        <h2>Speed Control</h2>
         <img src="../img/car.jpg" />
       </section>
 
@@ -139,17 +139,21 @@
 
       <section>
         <section>
-          <h2>Lane keeping</h2>
+          <h2>Lane Keeping</h2>
           <img src="../img/track.jpg" />
         </section>
         <section>
-          <h2>Roll control</h2>
+          <h2>Aircraft Roll Control</h2>
           <img src="../img/airplane.jpg" />
+        </section>
+        <section>
+          <h2>Room temperature control</h2>
+          <img src="../img/room.jpg" />
         </section>
       </section>
 
       <section data-background-image="../img/track.jpg" data-background-size="contain" data-background-opacity="var(--bck_opacity_high)">
-        <h2>Lane Keeping Control</h2>
+        <h2>Lane Keeping Feedback Loop</h2>
         <div style="margin-top: 2em; font-size:1.0em; text-align: left; color: black">
           <ul>
             <li><span class="bold">System:</span> car</li>
@@ -158,6 +162,7 @@
             <li><span class="bold">Set point</span>: center of lane, $y^{\mathrm{sp}} = 0$</li>
             <li><span class="bold">Error</span>: $e(t) = -y(t)$</li>
             <li><span class="bold">Control action</span>: steering angle, $u(t)$</li>
+            <li><span class="bold">Disturbance</span>: alignment of wheels</li>
           </ul>
 
         </div>
@@ -556,8 +561,25 @@
 
       <section>
         <h2>Overview</h2>
-
+        <table style="margin-top: 2.0em; border: solid 1px" width="1000px">
+          <tr>
+            <td style="vertical-align: middle;" width="500px">
+              <div><img src="../img/shower.jpg" width="450" /></div>
+              <div>Control loop: controlled variable,
+                sensor, measurement, set-point, error,
+                control action, controller, system, disturbance
+              </div>
+            </td>
+            <td width="500px">
+              <div>PID controller:</div>
+              <div>
+                <div>$u = K_p e + K_d \dot{e} + K_i \int_0^t e \mathrm{d}\tau$</div>
+              </div>
+            </td>
+          </tr>
+        </table>
       </section>
+
 
 
       <section>
@@ -565,15 +587,11 @@
           <img src="../img/quizz.png" alt="Quizz Time" />
           <div>
             Visit
-            <a href="" target="_blank" style="text-decoration: none; color: rgb(43, 43, 228)">http://kahoot.it</a>
+            <a href="" target="_blank" style="text-decoration: none; color: rgb(43, 43, 228)">https://kahoot.it</a>
           </div>
         </div>
 
       </section>
-
-      <!-- Bottom bar and (floating) logo -->
-      <!--     <div id="bar"></div>
-    <div id="logo-container"></div> -->
 
       <!-- Reveal.js and Template Specific Options -->
       <script src="../lib/js/reveal/lib/js/head.min.js"></script>
@@ -605,38 +623,6 @@
           ]
         });
       </script>
-
-      <!-- Formatting bottom bar and logo -->
-      <!-- <script>
-        function setBarProperties() {
-          // var snums = document.getElementsByClassName('slide-number')[0];
-          var logo = document.getElementById('logo-container');
-          var bar = document.getElementById('bar');
-
-          // adapt this value (0.045) if the bar height is not correct
-          var h = window.innerHeight * 0.045;
-          // check for minimal height (any smaller and we can't read the slide number)
-          if (h <= 20) {
-            bar.style.minHeight = "20px";
-            // snums.style.bottom = "2px";
-            logo.style.bottom = "15px";
-            // alert();
-          } else {
-            bar.style.minHeight = h + "px";
-            // snums.style.bottom = "1%";
-            logo.style.bottom = "3%";
-          }
-        }
-        window.onload = setBarProperties;
-        window.onresize = setBarProperties;
-        window.onkeydown = setBarProperties;
-      </script> -->
-
-      <!-- SVG injector script -->
-      <!-- <script src="../lib/js/svginjector/svg-injector.js"></script>
-      <script>
-        SVGInjector(document.querySelectorAll('img.inject-svg'));
-      </script> -->
     </div>
   </div>
 </body>
