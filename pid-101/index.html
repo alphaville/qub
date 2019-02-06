@@ -565,12 +565,23 @@
           <table style="margin-top: 2.0em; " width="1050px">
             <tr>
               <td style="vertical-align: middle;" width="700px">
-                <div><img src="../img/track.jpg" width="700px" /></div>
+                <div><img src="../img/track.jpg" width="600px" /></div>
               </td>
               <td width="350px">
-                <div style="font-size: 0.7em">Control loop: controlled variable,
-                  sensor, measurement, set-point, error,
-                  control action, controller, system, disturbance
+                <div style="font-size: 0.7em">
+                  <span class="bold">Control loop - new terms:</span>
+                  <ul>
+                    <li>system</li>
+                    <li>controlled variable</li>
+                    <li>sensor</li>
+                    <li>measurement</li>
+                    <li>set-point</li>
+                    <li>error, $e(t) = y^{\mathrm{sp}}(t) - y(t)$</li>
+                    <li>control action</li>
+                    <li>controller</li>
+                    <li>disturbance</li>
+                  </ul>
+
                 </div>
               </td>
             </tr>
@@ -580,12 +591,39 @@
           <table style="margin-top: 2.0em; " width="1050px">
             <tr>
               <td style="vertical-align: middle;" width="700px">
+                <div>
+                  <video id="mpc-video" data-autoplay width="650px" autoplay loop>
+                    <source src="../mov/PID/PID.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </td>
+              <td width="350px">
+                <div style="font-size: 0.7em">
+                  <span class="bold">PID controller:</span>
+                  <ul>
+                    <li>P: drives error to 0</li>
+                    <li>D: suppresses oscillations</li>
+                    <li>I: eliminates offset</li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="fragment replace" data-fragment-index="2">
+          <table style="margin-top: 2.0em; " width="1050px">
+            <tr>
+              <td style="vertical-align: middle;" width="700px">
                 <div><img src="../img/discrete_concept.gif" width="700px" /></div>
               </td>
               <td width="350px">
-                <div style="font-size: 0.7em">Control loop: controlled variable,
-                  sensor, measurement, set-point, error,
-                  control action, controller, system, disturbance
+                <div style="font-size: 0.7em">
+                  <span class="bold">Digital PID controller:</span>
+                  <ul>
+                    <li>D: successive differences</li>
+                    <li>I: sum of errors</li>
+                  </ul>
                 </div>
               </td>
             </tr>
@@ -600,7 +638,12 @@
           <img src="../img/quizz.png" alt="Quizz Time" />
           <div>
             Visit
-            <a href="" target="_blank" style="text-decoration: none; color: rgb(43, 43, 228)">https://kahoot.it</a>
+            <a href="https://kahoot.it" target="_blank" style="text-decoration: none; color: rgb(43, 43, 228)">https://kahoot.it</a>
+          </div>
+          <div class="sub-header-separator"></div>
+          <div>
+            Homework at
+            <a href="https://alphaville.github.io/qub" target="_blank" style="text-decoration: none; color: rgb(43, 43, 228)">https://alphaville.github.io/qub</a>
           </div>
         </div>
 
