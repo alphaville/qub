@@ -89,16 +89,18 @@
 
 
 \maketitle
-Quiz questions
+\pagestyle{empty}
+\pagenumbering{gobble}
+Quiz questions\\
 \textbf{}
 \begin{enumerate} 
  
- \item The \textbf{input} signal to a \textbf{controller} is 
+ \item The \textbf{input} signal to a \textbf{controller} is the
     \begin{enumerate}
-     \item The error, $e(t) = y^{sp}(t) - y^{m}(t)$
-     \item The set-point, $y^{sp}(t)$
-     \item The measured system variable
-     \item The control action
+     \item Error, (= set-point -- measured system variable), $e(t) = y^{sp}(t) - y^{m}(t)$
+     \item Set-point, $y^{sp}(t)$
+     \item Measured system variable
+     \item Control action
     \end{enumerate}
 
  \item The \textbf{limit} of the \textbf{error} at infinity is called...
@@ -109,62 +111,34 @@ Quiz questions
      \item Feedback
     \end{enumerate}
     
- \item What is the \textbf{main reason} for using the \textbf{integral} in a PID controller?
+ \item The \textbf{main reason} for using the integral in PID is so that...
   \begin{enumerate}
-   \item So that the error converges
-   \item The controlled variable ultimately returns to its set point after a disturbance 
-   \item The derivative of the controlled variable goes to zero
-   \item The controlled variable does not oscillate
+   \item the error \textbf{converges}
+   \item the error converges to zero in presence of \textbf{disturbances}
+   \item the \textbf{derivative} of the controlled variable goes to zero
+   \item the controlled variable does not \textbf{oscillate}
   \end{enumerate}    
-    
- \item Which component of a PID controller is used to \textbf{eliminate offset}?
-  \begin{enumerate}
-   \item Proportional
-   \item Integral
-   \item Derivative
-   \item Feedback
-  \end{enumerate}
-
-
-
-  \item A system is controlled with a P controller and it \textbf{oscillates} too much. 
-        We should...
-  \begin{enumerate}
-   \item Increase the proportional gain
-   \item Decrease the proportional gain
-  \end{enumerate}
   
   
-  \item A quadcopter's altitude is controlled with a PD controller and there
-        is \textbf{offset}. We should...        
+  \item A PD controls a quadcopter's altitude. It should hover at 1m. Instead, it hovers at 0.7m...     
   \begin{enumerate}
    \item Increase the proportional gain
    \item Decrease the proportional gain
    \item Decrease the derivative gain
    \item Introduce an integral mode
   \end{enumerate}
-        
-  \item An aircraft's roll is controlled with a PID controller, but it \textbf{wobbles}
-        too much. We should...
-  \begin{enumerate}
-   \item Increase the proportional gain
-   \item Increase the integral gain
-   \item Increase the derivative gain
-   \item Decrease the derivative gain
-  \end{enumerate}
-  
   
 
 
   \item In a software implementation of the PID controller, the \textbf{integral} 
-        is replaced by
+         can be approximated using...
   \begin{enumerate}
    \item sum of errors
    \item successive differences of errors
   \end{enumerate}
         
   \item In a software implementation of the PID controller, the \textbf{derivative} 
-        is replaced by
+         can be approximated using...
   \begin{enumerate}
    \item sum of errors
    \item successive differences of errors

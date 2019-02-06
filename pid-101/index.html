@@ -505,7 +505,7 @@
           +
           \underbrace{
           K_i
-          \sum_{i=0}^{k}
+          \sum_{i=1}^{k}
           T_s e(t_i)
           }_{\text{Integral Approx.}}
           \end{align}$
@@ -519,10 +519,10 @@
           Discrete-time PID controller
         </div>
         <div style="font-size:1.0em; text-align: left; color: black">
-          $\begin{align}u(t_k) ={}& K_p e(t_k) + K_d \frac{e(t_k) - e(t_{k-1})}{T_s} + K_i \sum_{i=0}^{k}
+          $\begin{align}u(t_k) ={}& K_p e(t_k) + K_d \frac{e(t_k) - e(t_{k-1})}{T_s} + K_i \sum_{i=1}^{k}
           T_s
           e(t_i)\\ ={}&
-          K_p e(t_k) + {\color{blue}{K'_d}} (e(t_k) - e(t_{k-1})) + {\color{red}{K'_i}} \sum_{i=0}^{k}e(t_i)
+          K_p e(t_k) + {\color{blue}{K'_d}} (e(t_k) - e(t_{k-1})) + {\color{red}{K'_i}} \sum_{i=1}^{k}e(t_i)
           \end{align}$
         </div>
         <div style="margin-top: 0.5em; font-size:1.0em; text-align: left; color: black">
@@ -561,23 +561,36 @@
 
       <section>
         <h2>Overview</h2>
-        <table style="margin-top: 2.0em; border: solid 1px" width="1000px">
-          <tr>
-            <td style="vertical-align: middle;" width="500px">
-              <div><img src="../img/shower.jpg" width="450" /></div>
-              <div>Control loop: controlled variable,
-                sensor, measurement, set-point, error,
-                control action, controller, system, disturbance
-              </div>
-            </td>
-            <td width="500px">
-              <div>PID controller:</div>
-              <div>
-                <div>$u = K_p e + K_d \dot{e} + K_i \int_0^t e \mathrm{d}\tau$</div>
-              </div>
-            </td>
-          </tr>
-        </table>
+        <div class="fragment replace" data-fragment-index="1">
+          <table style="margin-top: 2.0em; " width="1050px">
+            <tr>
+              <td style="vertical-align: middle;" width="700px">
+                <div><img src="../img/track.jpg" width="700px" /></div>
+              </td>
+              <td width="350px">
+                <div style="font-size: 0.7em">Control loop: controlled variable,
+                  sensor, measurement, set-point, error,
+                  control action, controller, system, disturbance
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="fragment replace" data-fragment-index="1">
+          <table style="margin-top: 2.0em; " width="1050px">
+            <tr>
+              <td style="vertical-align: middle;" width="700px">
+                <div><img src="../img/discrete_concept.gif" width="700px" /></div>
+              </td>
+              <td width="350px">
+                <div style="font-size: 0.7em">Control loop: controlled variable,
+                  sensor, measurement, set-point, error,
+                  control action, controller, system, disturbance
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
       </section>
 
 

@@ -113,10 +113,17 @@
       </section>
 
 
-      <section>
+      <!-- <section>
         <h2>Vision</h2>
         <div class="centered" style="margin-top: 6%">
           <img src="../img/pyramid.png" width="800" />
+        </div>
+      </section> -->
+
+      <section>
+        <h2>Overview</h2>
+        <div class="centered" style="margin-top: 10%">
+          <img src="../img/overview.png" width="800" />
         </div>
       </section>
 
@@ -152,9 +159,19 @@
         <h2>Certainty-Equivalent Control</h2>
         <div class="fragment replace" data-fragment-index="1">
           <img src="../img/ce-ctrl-1.png" alt="textbook" style="width: 100%" />
+          <div class="footnote">
+            J.B. Rawlings, D.Q. Mayne &amp; M. Diehl,
+            <span class="italix">Model Predictive Control: Theory, Computation, and Design</span>,
+            Nob Hill Pub., 2009.
+          </div>
         </div>
         <div class="fragment replace" data-fragment-index="1">
           <img src="../img/ce-ctrl-2.png" alt="textbook" style="width: 100%" />
+          <div class="footnote">
+            J.B. Rawlings, D.Q. Mayne &amp; M. Diehl,
+            <span class="italix">Model Predictive Control: Theory, Computation, and Design</span>,
+            Nob Hill Pub., 2009.
+          </div>
         </div>
       </section>
 
@@ -162,6 +179,11 @@
         <h2>Worst-case Control</h2>
         <div class="fragment replace" data-fragment-index="1">
           <img src="../img/wc-ctrl-1.png" alt="worst case control" style="width: 100%" />
+          <div class="footnote">
+            J.B. Rawlings, D.Q. Mayne &amp; M. Diehl,
+            <span class="italix">Model Predictive Control: Theory, Computation, and Design</span>,
+            Nob Hill Pub., 2009.
+          </div>
         </div>
         <div class="fragment replace" data-fragment-index="1">
           <img src="../img/wc-ctrl-1.png" alt="worst case control" style="width: 100%; opacity: 0.1;" />
@@ -177,9 +199,19 @@
             </div> <!-- END of #wp-mpc-formulation -->
             <div>subject to system dynamics, $x_{t+1}=f(x_t, u_t, w_t)$, and constraints.</div>
           </div> <!-- END of #wc-mpc -->
+          <div class="footnote">
+            J.B. Rawlings, D.Q. Mayne &amp; M. Diehl,
+            <span class="italix">Model Predictive Control: Theory, Computation, and Design</span>,
+            Nob Hill Pub., 2009.
+          </div>
         </div>
         <div class="fragment replace" data-fragment-index="3">
           <img src="../img/wc-ctrl-2.png" alt="textbook" style="width: 100%" />
+          <div class="footnote">
+            J.B. Rawlings, D.Q. Mayne &amp; M. Diehl,
+            <span class="italix">Model Predictive Control: Theory, Computation, and Design</span>,
+            Nob Hill Pub., 2009.
+          </div>
         </div>
       </section>
 
@@ -187,6 +219,10 @@
         <h2>Stochastic Control</h2>
         <div class="fragment replace" data-fragment-index="1">
           <img src="../img/stoch-ctrl-1.png" alt="textbook" style="width: 100%" />
+          <div class="footnote">
+            A. Mesbah, "Stochastic model predictive control: An overview and perspectives for future research,"
+            IEEE CSM, 2016.
+          </div>
         </div>
         <div class="fragment replace" data-fragment-index="1">
           <img src="../img/stoch-ctrl-1.png" alt="textbook" style="width: 100%; opacity: 0.1;" />
@@ -201,13 +237,25 @@
               $$
             </div> <!-- END of #wp-mpc-formulation -->
             <div>subject to the system dynamics and constraints.</div>
-          </div> <!-- END of #wc-mpc -->
+            <div class="footnote">
+              A. Mesbah, "Stochastic model predictive control: An overview and perspectives for future research,"
+              IEEE CSM, 2016.
+            </div>
+          </div>
         </div>
         <div class="fragment replace" data-fragment-index="3">
           <img src="../img/stoch-ctrl-2.png" alt="textbook" style="width: 100%" />
+          <div class="footnote">
+            A. Mesbah, "Stochastic model predictive control: An overview and perspectives for future research,"
+            IEEE CSM, 2016.
+          </div>
         </div>
         <div class="fragment replace centered" data-fragment-index="4" style="margin-top: 2em">
           <img src="../img/counterexample.jpg" alt="counterexample" width="80%" />
+          <div class="footnote">
+            A. Mesbah, "Stochastic model predictive control: An overview and perspectives for future research,"
+            IEEE CSM, 2016.
+          </div>
         </div>
       </section>
 
@@ -318,6 +366,11 @@
             </div>
           </div>
         </section>
+        <div class="footnote">
+          P. Sopasakis, D. Herceg, A. Bemporad and P. Patrinos,
+          "Risk-averse model predictive control,"
+          Automatica 100, pp. 281-288, Feb. 2019.
+        </div>
       </section>
 
       <section>
@@ -358,22 +411,36 @@
       <section>
         <h2>Risk-averse MPC</h2>
         <div class="sub-header-separator"></div>
-        <div>
-          Proper multistage formulation:
-          <div class="block-equation">
-            $$
-            \operatorname*{Minimise}_{u_0,\ldots, u_{N-1}}\rho_{w_0}
-            \Big[
-            \ell_0(x_0,u_0, w_0)
-            {}+{}
-            \rho_{w_1\mid w_0}\left[\ell_1(x_1,u_1, w_1) {}+{} \ldots{} \right]
-            \Big]
-            $$
-          </div>
-          <div>
-            subject to the system dynamics and constraints.
-          </div>
-        </div>
+        <table style="margin-top: 2.0em; " width="1050px">
+          <tr>
+            <td style="vertical-align: middle;" width="300px">
+              <div>
+                <img src="../img/automatica-ra.png" width="300" />
+              </div>
+            </td>
+            <td style="vertical-align: middle;" width="500px">
+              <div>
+                Proper multistage formulation:
+                <div class="block-equation">
+                  $$
+                  \begin{align}
+                  \operatorname*{Minimise}_{u_0,\ldots, u_{N-1}}\ &\rho_{w_0}
+                  \Big[
+                  \ell_0(x_0,u_0, w_0)\\
+                  &{}+{}
+                  \rho_{w_1\mid w_0}\left[\ell_1(x_1,u_1, w_1) {}+{} \ldots{} \right]
+                  \Big]
+                  \end{align}
+                  $$
+                </div>
+                <div>
+                  subject to the system dynamics and constraints.
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+
         <div class="footnote">
           P. Sopasakis, D. Herceg, A. Bemporad and P. Patrinos,
           "Risk-averse model predictive control,"
@@ -405,9 +472,9 @@
 
 
         <div class="footnote">
-          P. Sopasakis, D. Herceg, A. Bemporad and P. Patrinos,
-          "Risk-averse model predictive control,"
-          Automatica 100, pp. 281-288, Feb. 2019.
+          P. Sopasakis, M. Schuurmans and P. Patrinos,
+          "Safe learning-based risk-averse MPC for Markovian systems,"
+          IEEE CDC, 2019 (TBS).
         </div>
       </section>
 
@@ -422,6 +489,14 @@
         </div>
         <div style="margin-top: 3em; font-size:1em; text-align: center; color: white">
           Collision Avoidance
+        </div>
+      </section>
+
+      <section data-background-video="../mov/MAV/mav-nmpc.mp4" data-background-video-loop="loop" data-background-size="cover"
+        data-background-video-muted="true">
+        <div class="footnote" style="color: rgba(255, 255, 255, 0.63)">
+          E. Small, P. Sopasakis, <span class="italix">et al.</span>, "Aerial navigation in obstructed environments
+          with embedded nonlinear model predictive control," IEEE ECC, 2019.
         </div>
       </section>
 
@@ -445,10 +520,15 @@
             <img src="../img/oa3.png" width=30% style="opacity: 0.1" />
           </div>
         </div>
-
+        <div class="footnote">
+          A.S. Sathya, P Sopasakis, <span class="italix">et al.</span>
+          <span class="italix">et al.</span>, "Embedded nonlinear model predictive control for obstacle avoidance using
+          PANOC,"
+          IEEE ECC, 2018.
+        </div>
       </section>
 
-      <section data-background-image="../img/mc.jpeg" data-background-size="cover" data-background-opacity="var(--bck_opacity)">
+      <section>
         <h2>Embedded Nonconvex Optimisation</h2>
         <div style="margin-top: 3em"></div>
         <!-- <div>Facts...</div> -->
@@ -464,9 +544,17 @@
           f(u^\nu))$
         </div>
         <div>but very slow!</div>
+        <div class="footnote">
+          L. Stella, A. Themelis, P. Sopasakis and P. Patrinos,
+          <span class="italix">et al.</span>, "A simple and efficient algorithm for nonlinear model predictive
+          control," IEEE CDC, 2017. <br /> A.S Sathya, P Sopasakis, <span class="italix">et al.</span>
+          <span class="italix">et al.</span>, "Embedded nonlinear model predictive control for obstacle avoidance using
+          PANOC,"
+          IEEE ECC, 2018.
+        </div>
       </section>
 
-      <section data-background-image="../img/mc.jpeg" data-background-size="cover" data-background-opacity="var(--bck_opacity)">
+      <section>
         <h2>Embedded Nonconvex Optimisation</h2>
         <div style="margin-top: 2.3em"></div>
         <div id="first-idea-container">
@@ -492,12 +580,15 @@
         <div class="footnote">
           L. Stella, A. Themelis, P. Sopasakis and P. Patrinos,
           <span class="italix">et al.</span>, "A simple and efficient algorithm for nonlinear model predictive
-          control," IEEE CDC, 2017.
+          control," IEEE CDC, 2017. <br /> A.S Sathya, P Sopasakis, <span class="italix">et al.</span>
+          <span class="italix">et al.</span>, "Embedded nonlinear model predictive control for obstacle avoidance using
+          PANOC,"
+          IEEE ECC, 2018.
         </div>
       </section>
 
 
-      <section data-background-image="../img/mc.jpeg" data-background-size="cover" data-background-opacity="var(--bck_opacity)">
+      <section>
         <h2>Forward-Backward Envelope</h2>
         <div class="sub-header-separator"></div>
         <div class="centered">
@@ -506,31 +597,27 @@
         <div class="footnote">
           L. Stella, A. Themelis, P. Sopasakis and P. Patrinos,
           <span class="italix">et al.</span>, "A simple and efficient algorithm for nonlinear model predictive
-          control," IEEE CDC, 2017.
-        </div>
-      </section>
-
-      <section data-background-image="../img/mc.jpeg" data-background-size="cover" data-background-opacity="var(--bck_opacity)">
-        <h2>Two Orders of Magnitude Faster!</h2>
-        <div class="sub-header-separator"></div>
-        <div class="centered">
-          <img src="../img/two-orders.png" width="630" />
-        </div>
-        <div class="footnote">
-          AS Sathya, P Sopasakis, <span class="italix">et al.</span>
+          control," IEEE CDC, 2017. <br /> A.S Sathya, P Sopasakis, <span class="italix">et al.</span>
           <span class="italix">et al.</span>, "Embedded nonlinear model predictive control for obstacle avoidance using
           PANOC,"
           IEEE ECC, 2018.
         </div>
       </section>
 
-      <section data-background-video="../mov/MAV/mav-nmpc.mp4" data-background-video-loop="loop" data-background-size="cover"
-        data-background-video-muted="true">
-        <div class="footnote" style="color: rgba(255, 255, 255, 0.63)">
-          E. Small, P. Sopasakis, <span class="italix">et al.</span>, "Aerial navigation in obstructed environments
-          with embedded nonlinear model predictive control," IEEE ECC, 2019.
+      <section>
+        <h2>Two Orders of Magnitude Faster!</h2>
+        <div class="sub-header-separator"></div>
+        <div class="centered">
+          <img src="../img/two-orders.png" width="630" />
+        </div>
+        <div class="footnote">
+          A.S. Sathya, P Sopasakis, <span class="italix">et al.</span>
+          <span class="italix">et al.</span>, "Embedded nonlinear model predictive control for obstacle avoidance using
+          PANOC,"
+          IEEE ECC, 2018.
         </div>
       </section>
+
 
 
       <!-- 
@@ -538,11 +625,23 @@
         NUM. OPTIMISATION
         PART-II: LARGE-SCALE
       -->
-      <section data-background-image="../img/gpu.jpeg" data-background-size="cover" data-background-opacity="var(--bck_opacity)">
+      <section>
         <h2>Large-scale GPU-accelerated optimisation</h2>
         <div class="sub-header-separator"></div>
         <div class="centered">
           <img src="../img/gpu_algorithms.png" width="930" />
+        </div>
+        <div class="footnote">
+          <div style="margin-bottom: 0.5em">P. Sopasakis, A.K. Sampathirao, A. Bemporad and P. Patrinos,
+            "Uncertainty-aware demand management of
+            water distribution networks in deregulated energy markets," Environmental Modelling & Software, 2018.
+          </div>
+          <div style="margin-bottom: 0.5em">
+            A.K. Sampathirao, P. Sopasakis, A. Bemporad and P. Patrinos, "GPU-accelerated stochastic predictive control
+            of drinking water networks," IEEE Control Systems Technology 26(2):551–562, 2018.
+          </div>
+          <div>A.K. Sampathirao, P. Sopasakis, A. Bemporad and P. Patrinos, "Distributed solution of stochastic optimal
+            control problems on GPUs," 54 th IEEE Conf. Decision and Control, Dec 2015, Osaka, Japan.</div>
         </div>
       </section>
 
@@ -575,9 +674,10 @@
         <div style="vertical-align: middle; text-align: center;  margin-top: 5%">
           <div><span class="bold">Elegant</span> OCL framework</div>
           <div style="margin:0.5em">$\Downarrow$</div>
-          <div style="width: 50%; margin-left: 24.5%; text-align: center">Two textbooks on
-            <span style="color: red">stochastic optimisation</span> and
-            <span style="color: green">embedded MPC</span> for safe cobotics</div>
+          <div style="width: 60%; margin-left: 20%; text-align: center">
+            <span class="bold">Textbooks</span> for engineers and computer scientists on
+            <span style="color: red">embedded and distributed optimisation</span> and
+            <span style="color: green">learning-based control</span> for safe cobotics</div>
         </div>
       </section>
 
@@ -613,6 +713,12 @@
             </td>
           </tr>
         </table>
+      </section>
+
+
+      <section>
+        <h2>Research Agenda</h2>
+        <img src="../img/agenda.png" />
       </section>
 
 
