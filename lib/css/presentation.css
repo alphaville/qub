@@ -146,7 +146,7 @@ body {
 }
 
 /* flips and image (works for GIFs) */
-.reveal #flipped_roboto, .reveal #flipped_phd{
+.reveal #flipped_roboto, .reveal #flipped_phd, .reveal #flipped_roboto_cautious{
   -moz-transform: scaleX(-1);
   -o-transform: scaleX(-1);
   -webkit-transform: scaleX(-1);

@@ -74,6 +74,40 @@
         <div style="margin-top: 0.35em; text-align:center; font-size: 0.9em">Queen's University Belfast</div>
       </section>
 
+      <section>
+        <h2>About me</h2>
+        <table style="margin-top: 2.0em; " width="1100px">
+          <tr>
+            <td style="vertical-align: top;" width="520px">
+              <div>
+                <h3>Education</h3>
+                <ul>
+                  <li>PhD, Control Theory, NTU Athens</li>
+                  <li>ITN Fellowship, HMGU, Munich</li>
+                  <li>MSc, Applied Math., NTU Athens</li>
+                  <li>Dipl End, Chem. Eng., NTU Athens</li>
+                </ul>
+              </div>
+            </td>
+            <td style="vertical-align: top;" width="500px">
+              <div>
+                <h3>Six years postdoc experience</h3>
+                <ul>
+                  <li>Luleå Technical Uni., Sweden</li>
+                  <li>University of Cyprus</li>
+                  <li>KU Leuven, Belgium</li>
+                  <li>IMT Lucca, Italy</li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <div style="margin-top: 1em">
+          <span class="bold">Research:</span> Stochastic model predictive <span class="italix" style="color:teal">control</span>
+          and fast <span class="italix" style="color:teal">numerical optimisation</span>
+          for <span class="italix" style="color:teal">autonomous systems</span>
+        </div>
+      </section>
 
       <!-- 
         
@@ -138,6 +172,21 @@
         <div style="margin-top: 10%; font-size:1em; text-align: center; color: white">
           Risk-averse Model Predictive Control
         </div>
+      </section>
+
+      <section>
+        <h2>Safe Learning-based Control</h2>
+        <table style="width:100%; margin-top: 1.0em">
+          <tr>
+            <td style="vertical-align: middle">
+              <img src="../img/walk.gif" width="550" />
+            </td>
+            <td style="vertical-align: middle">
+              <img id="flipped_roboto_cautious" src="../img/roboto_cautious.gif" alt="mr_roboto cautious" style="width: 350pt" />
+            </td>
+          </tr>
+        </table>
+
       </section>
 
       <section>
@@ -557,6 +606,7 @@
       <section>
         <h2>Embedded Nonconvex Optimisation</h2>
         <div style="margin-top: 2.3em"></div>
+
         <div id="first-idea-container">
           <div id="first-idea-text">
             <span class="bold">IDEA #1.</span> An averaged algorithm that takes convex combinations of
@@ -571,36 +621,29 @@
         </div>
         <div style="margin-top: 3em"></div>
         <div id="second-idea-container" class="fragment" data-fragment-index="1">
-          <div class="sub-header-separator"></div>
-          <div id="second-idea-text">
-            <span class="bold">IDEA #2.</span> A <span class="bold">globalisation</span> of the above
-            algorithm using a real-valued continuous merit function - the forward-backward envelope.
-          </div>
+          <table style="margin-top: 2.0em; " width="100%">
+            <tr>
+              <td style="vertical-align: top;" width="350px">
+                <div class="centered">
+                  <img src="../img/fbe.png" width="300" />
+                </div>
+              </td>
+              <td style="vertical-align: top;" width="650px">
+                <div class="sub-header-separator"></div>
+                <div id="second-idea-text">
+                  <span class="bold">IDEA #2.</span> A <span class="bold">globalisation</span> of the above
+                  algorithm using a real-valued continuous merit function - the forward-backward envelope.
+                </div>
+              </td>
+            </tr>
+          </table>
+
         </div>
         <div class="footnote">
           L. Stella, A. Themelis, P. Sopasakis and P. Patrinos,
           <span class="italix">et al.</span>, "A simple and efficient algorithm for nonlinear model predictive
-          control," IEEE CDC, 2017. <br /> A.S Sathya, P Sopasakis, <span class="italix">et al.</span>
-          <span class="italix">et al.</span>, "Embedded nonlinear model predictive control for obstacle avoidance using
-          PANOC,"
-          IEEE ECC, 2018.
-        </div>
-      </section>
-
-
-      <section>
-        <h2>Forward-Backward Envelope</h2>
-        <div class="sub-header-separator"></div>
-        <div class="centered">
-          <img src="../img/fbe.png" width="630" />
-        </div>
-        <div class="footnote">
-          L. Stella, A. Themelis, P. Sopasakis and P. Patrinos,
-          <span class="italix">et al.</span>, "A simple and efficient algorithm for nonlinear model predictive
-          control," IEEE CDC, 2017. <br /> A.S Sathya, P Sopasakis, <span class="italix">et al.</span>
-          <span class="italix">et al.</span>, "Embedded nonlinear model predictive control for obstacle avoidance using
-          PANOC,"
-          IEEE ECC, 2018.
+          control," IEEE CDC, 2017. <br /> A.S Sathya, P Sopasakis, <span class="italix">et al.</span>,
+          "Embedded nonlinear model predictive control for obstacle avoidance using PANOC," IEEE ECC, 2018.
         </div>
       </section>
 
