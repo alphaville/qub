@@ -561,7 +561,10 @@
           <div class="fragment replace" data-fragment-index="1">
             <div style="position: absolute; text-align: left; top: 40%">The dynamics is always <span class="bold">nonlinear</span></div>
             <div style="position: absolute; text-align: left; top: 50%">
-              The constraints are always <span class="bold">nonconvex</span>
+              The constraints are always <span class="bold">nonconvex</span>:
+            </div>
+            <div style="position: absolute; text-align: left; top: 70%; left: 5%">
+              Nonconvex Optimisation Problems: <span style="color:crimson">$\operatorname*{Minimise}_{u\in U} f(u)$</span>
             </div>
             <img src="../img/oa1.png" width=30% style="opacity: 0.1" />
             <img src="../img/oa2.png" width=30% style="opacity: 0.1" />
@@ -615,7 +618,7 @@
           <div class="block-equation">
             $u^{\nu+1} = u^{\nu} + \tau_\nu$
             <span style="color: red">$d_{\mathrm{LBFGS}}^{\nu}$</span>
-            ${}+{} (1-\tau_\nu)[$<span style="color: green">$u^\nu - T_\gamma(u^\nu)$</span><span>$]$</span>
+            ${}+{} (1-\tau_\nu)[$<span style="color: green">$T_\gamma(u^\nu) - u^\nu$</span><span>$]$</span>
           </div>
         </div>
         <div style="margin-top: 3em"></div>
