@@ -17,3 +17,5 @@
 - [Pythagoras's cup](https://www.youtube.com/watch?v=ISfIT3B4y6E)
 
 ### Other
+
+- Find acronyms and mnemonics
