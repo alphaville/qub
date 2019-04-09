@@ -6,6 +6,7 @@
 
 - [How to give a lecture](https://www.youtube.com/watch?v=Or5R_uPvPao)
 - [What makes a good lecture](https://www.youtube.com/watch?v=Xuv3yT9XRAA)
+- [Good points on preparing/delivering a lecture](https://teachingcommons.stanford.edu/resources/teaching-resources/teaching-strategies/checklist-effective-lecturing/lecturing-guidelines)
 
 
 ## Ideas
