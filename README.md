@@ -17,6 +17,14 @@
 - [double pendulum](https://www.youtube.com/watch?v=mZ1hF_-cubA)?
 - [Pythagoras's cup](https://www.youtube.com/watch?v=ISfIT3B4y6E)
 
+### Lecture preparation
+
+- [Great Beginnings: Things to do early in your class](https://teachingcommons.stanford.edu/resources/teaching/teaching-strategies/great-beginnings-things-do-early-your-class)
+
+### Assessment
+
+- [Assessing Student Learning](https://teachingcommons.stanford.edu/resources/teaching/evaluating-students/assessing-student-learning)
+
 ### Other
 
 - Find acronyms and mnemonics
