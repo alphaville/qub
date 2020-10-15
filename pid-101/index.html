@@ -43,8 +43,8 @@
   <link rel="stylesheet" href="../lib/js/reveal/lib/css/zenburn.css">
   <link rel="stylesheet" href="../lib/css/include_fonts.css">
   <link rel="stylesheet" href="../lib/css/presentation.css">
-
   <!-- Printing and PDF exports -->
+
   <!-- usage: add "?print-pdf" to URL, e.g. ".../index.html?print-pdf" -->
   <script>
     var link = document.createElement('link');
@@ -69,9 +69,8 @@
         <div style="margin-top: 2em;text-align:center; color:var(--my_lightgray)">
           a gentle introduction
         </div>
-        <div style="margin-top: 2em;text-align:center;">
-          <a href="https://alphaville.github.io" target="blank" style="color:black; text-decoration: none">Pantelis
-            Sopasakis</a>
+        <div style="margin-top: 2em;text-align:center; font-size: 0.65em;">
+          ELE2024, Lecturer: P. Sopasakis
         </div>
       </section>
 
@@ -95,7 +94,8 @@
         <img src="../img/shower.jpg" />
       </section>
 
-      <section data-background-image="../img/shower.jpg" data-background-size="contain" data-background-opacity="var(--bck_opacity_high)">
+      <section data-background-image="../img/shower.jpg" data-background-size="contain"
+        data-background-opacity="var(--bck_opacity_high)">
         <div style="margin-top: 10%; font-size:1.0em; text-align: left; color: black">
           Define (error) = (set point) - (measurement), that is
         </div>
@@ -119,7 +119,8 @@
         <img src="../img/car.jpg" />
       </section>
 
-      <section data-background-image="../img/car.jpg" data-background-size="contain" data-background-opacity="var(--bck_opacity_high)">
+      <section data-background-image="../img/car.jpg" data-background-size="contain"
+        data-background-opacity="var(--bck_opacity_high)">
         <div style="margin-top: 10%; font-size:1.0em; text-align: left; color: black">
           Define (error) = (set point) - (measurement), that is
         </div>
@@ -152,7 +153,8 @@
         </section>
       </section>
 
-      <section data-background-image="../img/track.jpg" data-background-size="contain" data-background-opacity="var(--bck_opacity_high)">
+      <section data-background-image="../img/track.jpg" data-background-size="contain"
+        data-background-opacity="var(--bck_opacity_high)">
         <h2>Lane Keeping Feedback Loop</h2>
         <div style="margin-top: 2em; font-size:1.0em; text-align: left; color: black">
           <ul>
@@ -170,6 +172,93 @@
 
       <!-- 
         
+        Lane Keeping Control
+      -->
+      <section data-background=var(--my_blue) data-state="plain-slide">
+        <div style="margin-top: 20%; font-size:2.6em; text-align: center; color: white">
+          Lane Keeping Control
+        </div>
+      </section>
+
+      <section data-background-image="../img/autdrive.gif">
+      </section>
+
+      <section data-background-image="../img/autdrive.gif" data-background-opacity="var(--bck_opacity)">
+        <div style="margin-top: 18%; font-size:1.5em; color:black">
+          Autonomous Driving Technologies
+        </div>
+        <ul>
+          <li>Control theory</li>
+          <li>Image/video/signal processing</li>
+          <li>Machine learning</li>
+          <li>Optimisation</li>
+          <li>Computer science</li>
+          <li>Sensors</li>
+        </ul>
+      </section>
+
+      <section data-background-image="../img/autdrive3.gif">
+        <div style="margin-top: 2%; font-size:1.5em; color:red; text-align:left;">
+          Autonomous Driving
+        </div>
+        <div style="color: yellow">
+          Pros and Cons?
+        </div>
+      </section>
+
+      <section data-background-image="../img/autdrive3.gif" data-background-opacity="var(--bck_opacity)">
+        <h2>Challenges</h2>
+        <div class="fragment replace" data-fragment-index="1">
+          <div style="font-size: 0.7em;">
+            <ul>
+              <li><span class="bold">Safety:</span></li>
+              <ul>
+                <li>driving will be safer (hopefully)</li>
+                <li>robots don't drink/get tired/get distracted</li>
+              </ul>
+              <li><span class="bold">Accountability and moral questions:</span></li>
+              <ul>
+                <li>whose fault is it when autonomous cars crash?</li>
+                <li>insurance</li>
+              </ul>
+              <li><span class="bold">Socioeconomic:</span></li>
+              <ul>
+                <li>towards liberation from labour?</li>
+                <li>loss or creation of jobs?</li>
+              </ul>
+              <li><span class="bold">Regulation:</span></li>
+              <ul>
+                <li>is there need for traffic lights?</li>
+              </ul>
+            </ul>
+          </div>
+        </div>
+        <div class="fragment replace" data-fragment-index="1">
+          <div style="font-size: 0.7em;">
+            <ul>
+              <li><span class="bold">Accessibility:</span></li>
+              <ul>
+                <li>accessible to disabled and elderly people</li>
+              </ul>
+              <li><span class="bold">Reduced traffic, higher speeds</span></li>
+              <li><span class="bold">Environmental:</span></li>
+              <ul>
+                <li>lower energy consumption</li>
+              </ul>
+              <li><span class="bold">Security and Privacy:</span></li>
+              <ul>
+                <li>continuous surveillance?</li>
+                <li>protection of personal data?</li>
+                <li>hacking</li>
+                <li>software reliability</li>
+              </ul>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 
+        
         P-Controller 
       -->
       <section data-background=var(--my_blue) data-state="plain-slide">
@@ -182,15 +271,16 @@
       </section>
 
 
-      <section data-background-video="../mov/P/p-concept.mp4" data-background-video-loop="loop" data-background-size="contain"
-        data-background-video-muted="true">
+      <section data-background-video="../mov/P/p-concept.mp4" data-background-video-loop="loop"
+        data-background-size="contain" data-background-video-muted="true">
       </section>
 
-      <section data-background-video="../mov/P/p-concept.mp4" data-background-video-loop="loop" data-background-size="contain"
-        data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
+      <section data-background-video="../mov/P/p-concept.mp4" data-background-video-loop="loop"
+        data-background-size="contain" data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
 
         <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
-          Steering is <span style="color:var(--my_red)">proportional</span> to <span style="color:var(--my_red)">error</span>
+          Steering is <span style="color:var(--my_red)">proportional</span> to <span
+            style="color:var(--my_red)">error</span>
         </div>
 
         <div style="margin-top: 5%; font-size:1.8em; color:black; text-align:center;">
@@ -199,23 +289,23 @@
 
       </section>
 
-      <section data-background-video="../mov/P/P_K0.01.mp4" data-background-video-loop="loop" data-background-size="contain"
-        data-background-video-muted="true">
+      <section data-background-video="../mov/P/P_K0.01.mp4" data-background-video-loop="loop"
+        data-background-size="contain" data-background-video-muted="true">
       </section>
 
-      <section data-background-video="../mov/P/P_K0.01.mp4" data-background-video-loop="loop" data-background-size="contain"
-        data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
+      <section data-background-video="../mov/P/P_K0.01.mp4" data-background-video-loop="loop"
+        data-background-size="contain" data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
         <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
           Too <span style="color:var(--my_red)">slow</span>! Let's increase $K_p$.
         </div>
       </section>
 
-      <section data-background-video="../mov/P/P_K0.06.mp4" data-background-video-loop="loop" data-background-size="contain"
-        data-background-video-muted="true">
+      <section data-background-video="../mov/P/P_K0.06.mp4" data-background-video-loop="loop"
+        data-background-size="contain" data-background-video-muted="true">
       </section>
 
-      <section data-background-video="../mov/P/P_K0.06.mp4" data-background-video-loop="loop" data-background-size="contain"
-        data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
+      <section data-background-video="../mov/P/P_K0.06.mp4" data-background-video-loop="loop"
+        data-background-size="contain" data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
         <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
           Too <span style="color:var(--my_red)">oscillatory</span>!
         </div>
@@ -224,8 +314,8 @@
         </div>
       </section>
 
-      <section data-background-video="../mov/P/P_K0.2.mp4" data-background-video-loop="loop" data-background-size="contain"
-        data-background-video-muted="true">
+      <section data-background-video="../mov/P/P_K0.2.mp4" data-background-video-loop="loop"
+        data-background-size="contain" data-background-video-muted="true">
       </section>
 
       <!-- <section data-background-video="../mov/P/P_K0.2.mp4" data-background-video-loop="loop" data-background-size="contain"
@@ -238,7 +328,8 @@
       <section data-background-image="../img/p_gains.jpg" data-background-size="contain">
       </section>
 
-      <section data-background-image="../img/p_gains.jpg" data-background-size="contain" data-background-opacity="var(--bck_opacity)">
+      <section data-background-image="../img/p_gains.jpg" data-background-size="contain"
+        data-background-opacity="var(--bck_opacity)">
         <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
           Increase $K_p$ for a <span style="color:var(--my_red)">faster</span> response, which may
           lead to <span style="color:var(--my_red)">oscillations</span>
@@ -259,17 +350,18 @@
         </div>
       </section>
 
-      <section data-background-video="../mov/PD/pd-concept.mp4" data-background-video-loop="loop" data-background-size="contain"
-        data-background-video-muted="true">
+      <section data-background-video="../mov/PD/pd-concept.mp4" data-background-video-loop="loop"
+        data-background-size="contain" data-background-video-muted="true">
       </section>
 
-      <section data-background-video="../mov/PD/pd-concept.mp4" data-background-video-loop="loop" data-background-size="contain"
-        data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
+      <section data-background-video="../mov/PD/pd-concept.mp4" data-background-video-loop="loop"
+        data-background-size="contain" data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
         <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
           The control action is
         </div>
         <div style="margin-top: 1em; font-size:1.5em; color:black; text-align:center;">
-          $u(t)$ ${}={}$ <span style="color:var(--my_lightblue)">$K_p e(t)$</span> ${}+{}$ <span style="color:var(--my_red)">$K_d
+          $u(t)$ ${}={}$ <span style="color:var(--my_lightblue)">$K_p e(t)$</span> ${}+{}$ <span
+            style="color:var(--my_red)">$K_d
             \dot{e}(t)$</span>
         </div>
       </section>
@@ -317,7 +409,8 @@
       <section data-background-image="../img/pd_gains.jpg" data-background-size="contain">
       </section>
 
-      <section data-background-image="../img/pd_gains.jpg" data-background-size="contain" data-background-opacity="var(--bck_opacity)">
+      <section data-background-image="../img/pd_gains.jpg" data-background-size="contain"
+        data-background-opacity="var(--bck_opacity)">
         <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
           Increase $K_d$ to suppress the <span style="color:var(--my_red)">oscillations</span>
         </div>
@@ -405,17 +498,18 @@
           Let's plug the <span style="color:var(--my_green)">integral</span> into the controller...
         </div>
         <div style="margin-top: 1.5em; font-size:1.5em; color:black; text-align:center;">
-          $u(t)$ ${}={}$ <span style="color:var(--my_lightblue)">$K_p e(t)$</span> ${}+{}$ <span style="color:var(--my_red)">$K_d
+          $u(t)$ ${}={}$ <span style="color:var(--my_lightblue)">$K_p e(t)$</span> ${}+{}$ <span
+            style="color:var(--my_red)">$K_d
             \dot{e}(t)$</span> ${}+{}$ <span style="color:var(--my_green)">$K_i I(t)$</span>
         </div>
       </section>
 
-      <section data-background-video="../mov/PID/PID.mp4" data-background-video-loop="loop" data-background-size="contain"
-        data-background-video-muted="true">
+      <section data-background-video="../mov/PID/PID.mp4" data-background-video-loop="loop"
+        data-background-size="contain" data-background-video-muted="true">
       </section>
 
-      <section data-background-video="../mov/PID/PID.mp4" data-background-video-loop="loop" data-background-size="contain"
-        data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
+      <section data-background-video="../mov/PID/PID.mp4" data-background-video-loop="loop"
+        data-background-size="contain" data-background-video-muted="true" data-background-opacity="var(--bck_opacity)">
         <div style="margin-top: 20%; font-size:2em; color:black; text-align:center;">
           No Offset!
         </div>
@@ -506,12 +600,12 @@
           $\begin{align}u(t_k) ={}& K_p e(t_k) + K_d \frac{e(t_k) - e(t_{k-1})}{T_s} + K_i \sum_{i=1}^{k}
           T_s
           e(t_i)\\ ={}&
-          K_p e(t_k) + {\color{blue}{K'_d}} (e(t_k) - e(t_{k-1})) + {\color{red}{K'_i}} \sum_{i=1}^{k}e(t_i)
+          K_p e(t_k) + {\color{blue}{K_{d, d}}} (e(t_k) - e(t_{k-1})) + {\color{red}{K_{i, d}}} \sum_{i=1}^{k}e(t_i)
           \end{align}$
         </div>
         <div style="margin-top: 0.5em; font-size:1.0em; text-align: left; color: black">
-          where <span style="color:var(--my_red)">$K'_d = \frac{K_d}{T_s}$</span> and
-          <span style="color:var(--my_blue)">$K'_i = K_i T_s$</span>.
+          where <span style="color:var(--my_blue)">$K_{d, d} = \frac{K_d}{T_s}$</span> and
+          <span style="color:var(--my_red)">$K_{i, d} = K_i T_s$</span>.
         </div>
       </section>
 
@@ -617,17 +711,122 @@
 
 
 
-      <section>
-        <div style="margin-top: 10%; text-align: center">
-          <img src="../img/quizz.png" alt="Quizz Time" />
-          <div>
-            Visit
-            <a href="https://kahoot.it" target="_blank" style="text-decoration: none; color: rgb(43, 43, 228)">https://kahoot.it</a>
-          </div>
-          <div class="sub-header-separator"></div>
+      <!-- 
+        
+        Control in general 
+        A few examples
+      -->
+      <section data-background=var(--my_blue) data-state="plain-slide">
+        <div style="margin-top: 10%; font-size:2.6em; text-align: center; color: white">
+          Today's Lab
         </div>
-
+        <div style="margin-top: 5%; font-size:1.0em; text-align: center;">
+          PID controller design for lane keeping
+        </div>
       </section>
+
+
+      <section>
+        <h2>Objective</h2>
+        <table style="margin-top: 2.0em; " width="1050px">
+          <tr>
+            <td style="vertical-align: middle;" width="600px">
+              <div><img src="../img/autdrive2.gif" width="500px" /></div>
+            </td>
+            <td width="450px">
+              <p style="line-height: 1.35;">
+                We will design and test a discrete-time <span class="bold">PID controller</span>
+                in <span class="bold">Python</span>.
+              </p>
+            </td>
+          </tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>Python Programming</h2>
+        <table style="margin-top: 2.0em; " width="1050px">
+          <tr>
+            <td style="vertical-align: middle;" width="600px">
+              <div><img src="../img/developer.gif" width="500px" /></div>
+            </td>
+            <td width="450px">
+              <div style="font-size: 0.9em">
+                <span class="bold">Why Python?</span>
+                <ul>
+                  <li>free</li>
+                  <li>open source</li>
+                  <li>easy</li>
+                  <li>strong community</li>
+                  <li>highly sought skill</li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </section>
+
+
+      <section data-background-image="../img/developer.gif" data-background-opacity="0.3">
+        <h2>Python in Engineering</h2>
+        <ul>
+          <li>Controller design</li>
+          <li>Simlations of dynamical systems</li>
+          <li>Optimisation</li>
+          <li>Image/video/signal processing</li>
+          <li>Machine learning</li>
+          <li>Parallel computing</li>
+        </ul>
+      </section>
+
+      <section data-background-image="../img/study.gif" data-background-opacity="0.3">
+        <h2>Grading Criteria</h2>
+        <div style="font-size: 0.8em;">
+          <ul>
+            <li>Technical correctness (45%)</li>
+            <li>Discussion of the results (15%)</li>
+            <li><span class="fragment replace" data-fragment-index="1">Quality of presentation (25%)</span>
+              <span class="fragment replace" data-fragment-index="1">
+                <span class="bold">Quality of presentation</span> (25%):
+                <span style="color: gray">(i) clarity, (ii) graphics, (iii) typesetting</span>
+              </span>
+            </li>
+            <li>Quality of code (15%)<span class="fragment" data-fragment-index="2">:
+                <span style="color: gray">(i) correctness, (ii) style, (iii) docs/comments</span>
+              </span>
+            </li>
+            <li>Bonus marks (+10%)</li>
+          </ul>
+          <div style="margin-top: 1.5em;"></div>
+          <span class="fragment" data-fragment-index="3">
+            <span class="bold">Deadline:</span> Seven (calendar) days from now.
+          </span>
+          <div style="margin-top: 1.5em;"></div>
+          <span class="fragment" data-fragment-index="4">
+            For best results: use the Overleaf template provided
+          </span>
+        </div>
+      </section>
+
+
+      <section data-background-image="../img/scientist.gif" data-background-opacity="0.3">
+        <h2>Let's get started!</h2>
+        <div style="margin-top: 1em;"></div>
+        <ul>
+          <li>Start PyCharm</li>
+          <li>Create a new project (Python3.6 with virtualenv)</li>
+          <li>Go to File &gt; Settings &gt; Python Interpreter &gt; Add:</li>
+          <ul>
+            <li><code>numpy</code>, v1.19</li>
+            <li><code>scipy</code>, v1.5.0</li>
+            <li><code>matplotlib</code>, v3.2.2</li>
+          </ul>
+        </ul>
+      </section>
+
+
+
+      <!-- ****************************** -->
 
       <!-- Reveal.js and Template Specific Options -->
       <script src="../lib/js/reveal/lib/js/head.min.js"></script>
